@@ -1,17 +1,14 @@
-﻿var Profile = Profile || {};
-Profile.constructors = Profile.constructors || {};
+﻿var vagantApp = window.vagantApp || {};
+vagantApp.profile = vagantApp.profile || {};
 
-Profile.constructors.Profile = (function ($, ko) {
+vagantApp.profile.ProfilePage = function () {
+    var self = this;
 
-    function ProfilePage() {
-        var self = this;
+    self.contactInformation = new Profile.constructors.ContactInformation();
+    self.achievements = new Profile.constructors.Achievements();
+    self.profileHistory = new Profile.constructors.ProfileHistory();
+};
 
-        self.contactInformation = new Profile.constructors.ContactInformation();
-        self.achievements = new Profile.constructors.Achievements();
-        self.profileHistory = new Profile.constructors.ProfileHistory();
-    }
-
+$(function () {
     ko.applyBindings(new ProfilePage());
-    return ProfilePage();
-
-})(jQuery, ko);
+});

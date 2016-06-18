@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Agile.Web.Framework.ActionResults;
+using System;
 using System.Web.Mvc;
 using Vagant.Web.Models.Event;
 
@@ -22,7 +23,7 @@ namespace Vagant.Web.Controllers
             {
                 var viewModel = GetEmptyEventViewModel();
 
-                return View(viewModel);
+                return View("CreateEvent", viewModel);
             }
             catch (Exception)
             {
@@ -37,7 +38,7 @@ namespace Vagant.Web.Controllers
             {
                 var viewModel = GetEditableEventViewModel(id);
 
-                return View(viewModel);
+                return View("EditEvent", viewModel);
             }
             catch (Exception)
             {
@@ -58,6 +59,20 @@ namespace Vagant.Web.Controllers
             {
                 //todo: log error
                 return RedirectToAction("Index", "Home");
+            }
+        }
+
+        public ActionResult AddComment(string text)
+        {
+            try
+            {
+                //todo: create
+                return new SuccessJsonResult();
+            }
+            catch (Exception)
+            {
+                //todo: log error
+                return new HttpBadRequestResult();
             }
         }
 

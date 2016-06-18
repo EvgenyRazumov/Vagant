@@ -249,6 +249,7 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Custom\Models\Event\createEvent.js" />
     <Content Include="Scripts\Custom\Models\Event\event.js" />
+    <Content Include="Scripts\Custom\Models\Map\mapManager.js" />
     <Content Include="Scripts\Custom\Models\Profile\achievements.js" />
     <Content Include="Scripts\Custom\Models\Profile\contactInformation.js" />
     <Content Include="Scripts\Custom\Models\Profile\profile.js" />
@@ -302,9 +303,9 @@
     <Content Include="Views\Shared\Profile\_ContactInfo.cshtml" />
     <Content Include="Views\Shared\Profile\_Achievements.cshtml" />
     <Content Include="Views\Shared\Profile\_ProfileHistory.cshtml" />
-    <Content Include="Views\Events\CreateEvent.cshtml" />
-    <Content Include="Views\Events\Details.cshtml" />
-    <Content Include="Views\Events\EditEvent.cshtml" />
+    <Content Include="Views\Event\CreateEvent.cshtml" />
+    <Content Include="Views\Event\Details.cshtml" />
+    <Content Include="Views\Event\EditEvent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

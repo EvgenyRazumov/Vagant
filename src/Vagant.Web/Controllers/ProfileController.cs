@@ -1,5 +1,7 @@
-﻿using System;
+﻿using Agile.Web.Framework.ActionResults;
+using System;
 using System.Web.Mvc;
+using Vagant.Web.Models.Message;
 using Vagant.Web.Models.Profile;
 
 namespace Vagant.Web.Controllers
@@ -41,6 +43,19 @@ namespace Vagant.Web.Controllers
             {
                 //todo: log error
                 return RedirectToAction("Index", "Home");
+            }
+        }
+
+        public ActionResult SendMessage(SendMessageViewModel messageModel)
+        {
+            try
+            {
+                return new SuccessJsonResult();
+            }
+            catch (Exception)
+            {
+                //todo: log error
+                return new HttpBadRequestResult();
             }
         }
 

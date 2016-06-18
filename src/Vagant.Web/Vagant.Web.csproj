@@ -186,6 +186,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActionResult\ErrorJsonResult.cs" />
+    <Compile Include="ActionResult\HttpBadRequestResult.cs" />
+    <Compile Include="ActionResult\SuccessJsonResult.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />

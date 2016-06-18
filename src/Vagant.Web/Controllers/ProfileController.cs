@@ -16,7 +16,7 @@ namespace Vagant.Web.Controllers
 
         #region Actions
 
-        public ActionResult Index(int userId)
+        public ActionResult Index(string userId)
         {
             try
             {
@@ -30,7 +30,7 @@ namespace Vagant.Web.Controllers
             }
         }
 
-        public ActionResult Details(int userId)
+        public ActionResult Details(string userId)
         {
             try
             {
@@ -48,14 +48,14 @@ namespace Vagant.Web.Controllers
 
         #region Private Methods
 
-        private EditProfileViewModel GetEditableProfileViewModel(int userId)
+        private EditProfileViewModel GetEditableProfileViewModel(string userId)
         {
             var result = new EditProfileViewModel();
 
             return result;
         }
 
-        private ProfileDetailsViewModel GetProfileDetailsViewModel(int userId)
+        private ProfileDetailsViewModel GetProfileDetailsViewModel(string userId)
         {
             var result = new ProfileDetailsViewModel();
 

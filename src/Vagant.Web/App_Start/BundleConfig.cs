@@ -28,6 +28,12 @@ namespace Vagant.Web
                       "~/Content/Common/site.css",
                       "~/Content/Common/reset.css"));
 
+            bundles.Add(new ScriptBundle("~/bundles/Timeline")
+                .Include("~/Scripts/timeline.js"));
+
+            bundles.Add(new StyleBundle("~/bundles/css/Timeline")
+                .Include("~/Content/timeline.css"));
+
             RegisterHomeBundles(bundles);
             RegisterProfileBundles(bundles);
             RegisterEventBundles(bundles);

@@ -237,10 +237,12 @@
     <Content Include="Content\Event\createEvent.css" />
     <Content Include="Content\Event\event.css" />
     <Content Include="Content\Home\home.css" />
+    <Content Include="Content\Images\cd-arrow.svg" />
     <Content Include="Content\Profile\achievements.css" />
     <Content Include="Content\Profile\contentInformation.css" />
     <Content Include="Content\Profile\profile.css" />
     <Content Include="Content\Profile\profileHistory.css" />
+    <Content Include="Content\timeline.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -267,6 +269,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\timeline.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -312,8 +315,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Base\" />
-    <Folder Include="Views\Event\" />
-    <Folder Include="Views\Profile\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

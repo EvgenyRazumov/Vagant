@@ -3,13 +3,48 @@
 }
 
 @section Styles {
+    @Styles.Render("~/bundles/css/Timeline")
     @Styles.Render("~/bundles/css/Home")
+    
 }
 
 @section BodyScripts {
+    @Scripts.Render("~/bundles/Timeline")
     @Scripts.Render("~/bundles/Home")
 }
 
 <div class="page home-page">
+    <div class="cd-horizontal-timeline col-sm-12 col-md-12 col-lg-12">
+        <div class="timeline">
+            <div class="events-wrapper">
+                <div class="events">
+                    <ol>
+                        <li><a href="#0" data-date="16/01/2014" class="selected">16 Jan</a></li>
+                        <li><a href="#0" data-date="17/01/2014">28 Feb</a></li>
+                        <li><a href="#0" data-date="18/01/2014">28 Feb</a></li>
+                        <li><a href="#0" data-date="19/01/2014">28 Feb</a></li>
+                        <li><a href="#0" data-date="20/01/2014">28 Feb</a></li>
+                        <li><a href="#0" data-date="21/01/2014">28 Feb</a></li>
+                        <li><a href="#0" data-date="22/01/2014">28 Feb</a></li>
+                    </ol>
+                    <span class="filling-line" aria-hidden="true"></span>
+                </div>
+            </div>
 
+            <ul class="cd-timeline-navigation">
+                <li><a href="#0" class="prev inactive">Prev</a></li>
+                <li><a href="#0" class="next">Next</a></li>
+            </ul>
+        </div>
+    </div>
+    <div class="home-page-body clearfix">
+        <div class="events-column col-xs-12 col-sm-12 col-md-9">
+        </div>
+        <div class="filters-column col-xs-12 col-sm-12 col-md-3">
+            <div class="filters">
+            </div>
+            <div class="notifications">
+            </div>
+        </div>
+    </div>
 </div>

@@ -25,6 +25,10 @@
                         {
                             <img class="logo-image" src="@Url.Action("Download", "FileData", new { id = Model.LogoId })" />
                         }
+                        else
+                        {
+                            <img class="logo-image" src="@Url.Content("~/Content/Images/logo-default.jpg")" />
+                        }
                     </div>
                     <div class="col-md-7">
                         <div class="title">

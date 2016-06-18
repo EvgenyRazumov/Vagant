@@ -138,7 +138,9 @@ namespace Vagant.Web.Controllers
                     events = d.Select(x => new
                     {
                         eventId = x.Id,
-                        logoUrl = x.LogoId.HasValue ? Url.Action("Download", "FileData", new { id = x.LogoId }) : null,
+                        logoUrl = x.LogoId.HasValue
+                            ? Url.Action("Download", "FileData", new { id = x.LogoId })
+                            : Url.Content("~/Content/Images/logo-default.jpg"),
                         audioUrl = x.AudioId.HasValue ? Url.Action("Download", "FileData", new { id = x.AudioId }) : null,
                         title = x.Title,
                         instruments = new

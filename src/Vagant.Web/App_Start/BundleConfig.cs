@@ -50,7 +50,7 @@ namespace Vagant.Web
             bundles.Add(new ScriptBundle("~/bundles/CreateEvent")
                 .Include("~/Scripts/libs/soundcloud-api.min.js")
                 .Include("~/Scripts/Custom/sound/soundCloudPlayer.js")
-                .Include("~/Scripts/Custom/Models/Event/createEventPage.js"));
+                .Include("~/Scripts/Custom/createEventPage.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/Event")
                 .Include("~/Scripts/Custom/Models/Event/event.js"));

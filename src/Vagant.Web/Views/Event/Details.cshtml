@@ -35,14 +35,18 @@
                             @Html.DisplayFor(m => m.BriefDescription)
                         </div>
                         <div class="space"></div>
-                        <div class="instruments">
-                            @Html.CheckBoxFor(m => m.EventInstruments.IsGuitarUsed, new { @disabled = "disabled" }) Guitar
-                            @Html.CheckBoxFor(m => m.EventInstruments.IsViolinUsed, new { @disabled = "disabled" }) Violin
-                            @Html.CheckBoxFor(m => m.EventInstruments.IsVocalApplicable, new { @disabled = "disabled" }) Vocal
+                        <div class="author">
+                            Author: @Html.DisplayFor(m => m.AuthorName)
                         </div>
                         <div class="space"></div>
                         <div class="start-time">
                             Event Date: @Html.DisplayFor(m => m.StartTime)
+                        </div>
+                        <div class="space"></div>
+                        <div class="instruments">
+                            @Html.CheckBoxFor(m => m.EventInstruments.IsGuitarUsed, new { @disabled = "disabled" }) Guitar
+                            @Html.CheckBoxFor(m => m.EventInstruments.IsViolinUsed, new { @disabled = "disabled" }) Violin
+                            @Html.CheckBoxFor(m => m.EventInstruments.IsVocalApplicable, new { @disabled = "disabled" }) Vocal
                         </div>
                         @if (Model.AudioId.HasValue)
                         {
@@ -74,7 +78,6 @@
                             }
                         </style>
                     </div>
-
                 </div>
             </div>
         </div>

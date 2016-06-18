@@ -139,6 +139,7 @@ namespace Vagant.Web.Controllers
                     {
                         eventId = x.Id,
                         logoUrl = x.LogoId.HasValue ? Url.Action("Download", "FileData", new { id = x.LogoId }) : null,
+                        audioUrl = x.AudioId.HasValue ? Url.Action("Download", "FileData", new { id = x.AudioId }) : null,
                         title = x.Title,
                         instruments = new
                         {

@@ -41,3 +41,7 @@ textarea {
 .event-body{
     padding-top: 15px;
 }
+
+.create-event-button{
+    margin-top: 7px;
+}

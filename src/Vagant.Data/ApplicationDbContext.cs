@@ -10,7 +10,7 @@ namespace Vagant.Data
             : base("DefaultConnection", throwIfV1Schema: false)
         { }
 
-        public DbSet<ImageFile> ImageFiles { get; set; }
+        public DbSet<FileData> Files { get; set; }
 
         public DbSet<UserContactInfo> UserContactInfos { get; set; }
 
@@ -22,23 +22,13 @@ namespace Vagant.Data
 
         public DbSet<Message> Messages { get; set; }
 
-        public DbSet<EventImage> EventImages { get; set; }
-
         public DbSet<Visitor> Visitors { get; set; }
+
+        public DbSet<EventInstrument> EventInstruments { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
-
-            modelBuilder.Entity<EventImage>()
-            .HasRequired(c => c.ImageFile)
-            .WithMany()
-            .WillCascadeOnDelete(false);
-
-            modelBuilder.Entity<EventImage>()
-                .HasRequired(s => s.Event)
-                .WithMany()
-                .WillCascadeOnDelete(false);
         }
     }
 }

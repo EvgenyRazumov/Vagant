@@ -5,9 +5,11 @@ using Vagant.Web.Models.User;
 
 namespace Vagant.Web.Models.Event
 {
-    public class EventDetailsViewModel: BaseEventViewModel
+    public class EventDetailsViewModel : BaseEventViewModel
     {
         #region Properties
+
+        public string AuthorName { get; set; }
 
         public ReadOnlyContactInfoViewModel ContactInfo { get; set; }
 

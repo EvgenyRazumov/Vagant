@@ -47,7 +47,8 @@ namespace Vagant.Web
         public static void RegisterEventBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/CreateEvent")
-                .Include("~/Scripts/Custom/Models/Event/createEvent.js"));
+                .Include("~/Scripts/Custom/Models/Event/createEvent.js")
+                .Include("~/Scripts/Custom/createEventPage.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/Event")
                 .Include("~/Scripts/Custom/Models/Event/event.js"));

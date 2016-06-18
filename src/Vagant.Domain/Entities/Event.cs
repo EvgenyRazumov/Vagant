@@ -24,10 +24,14 @@ namespace Vagant.Domain.Entities
 
         public string AuthorId { get; set; }
 
+        public int? EventInstrumentId { get; set; }
+
         public virtual Location Location { get; set; }
 
-        public virtual ImageFile Logo { get; set; }
+        public virtual FileData Logo { get; set; }
 
         public virtual ApplicationUser Author { get; set; }
+
+        public virtual EventInstrument EventInstrument { get; set; }
     }
 }

@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using Vagant.Domain.Entities;
 using Vagant.Domain.Models;
 using Vagant.Domain.Services;
@@ -18,24 +20,15 @@ namespace Vagant.Business.Services
         public int CreateEvent(EventModel model)
         {
             var eventRepository = _uow.GetRepository<Event>();
-            var eventImageRepository = _uow.GetRepository<EventImage>();
 
             var @event = new Event
             {
-                Location = new Location()
+                Location = new Location(),
+                EventInstrument = new EventInstrument()
             };
 
-            Map(model, @event);
+            MapToEntity(model, @event);
             eventRepository.Create(@event);
-
-            foreach (var image in model.Images)
-            {
-                eventImageRepository.Create(new EventImage
-                {
-                    EventId = @event.Id,
-                    ImageFileId = image
-                });
-            }
             _uow.Commit();
 
             return @event.Id;
@@ -51,7 +44,7 @@ namespace Vagant.Business.Services
                 throw new ArgumentNullException();
             }
 
-            Map(model, @event);
+            MapToEntity(model, @event);
             eventRepository.Update(@event);
             _uow.Commit();
         }
@@ -82,7 +75,21 @@ namespace Vagant.Business.Services
             return @event.Rate;
         }
 
-        private void Map(EventModel model, Event entity)
+        public EventModel GetEvent(int eventId)
+        {
+            var eventRepository = _uow.GetRepository<Event>();
+            var @event = eventRepository.GetByKey(eventId);
+            return GetModel(@event);
+        }
+
+        public IList<EventModel> GetEvents(DateTime startDate, DateTime endDate)
+        {
+            var eventRepository = _uow.GetRepository<Event>();
+            var events = eventRepository.Get(x => x.StartTime >= startDate.Date && x.StartTime <= endDate.Date);
+            return events.Select(GetModel).ToList();
+        }
+
+        private void MapToEntity(EventModel model, Event entity)
         {
             entity.AuthorId = model.AuthorId;
             entity.BriefDescription = model.BriefDescription;
@@ -96,8 +103,43 @@ namespace Vagant.Business.Services
             {
                 entity.Location.Latitude = model.Latitude;
                 entity.Location.Longitude = model.Longitude;
-                entity.Location.DisplayName = model.LocationDisplayName;
             }
+
+            if (entity.EventInstrument != null)
+            {
+                entity.EventInstrument.IsGuitarUsed = model.IsGuitarUsed;
+                entity.EventInstrument.IsViolinUsed = model.IsViolinUsed;
+                entity.EventInstrument.IsVocalApplicable = model.IsVocalApplicable;
+            }
+        }
+
+        private EventModel GetModel(Event entity)
+        {
+            var model = new EventModel();
+
+            model.AuthorId = entity.AuthorId;
+            model.BriefDescription = entity.BriefDescription;
+            model.EndTime = entity.EndTime;
+            model.FullDescription = entity.FullDescription;
+            model.LogoId = entity.LogoId;
+            model.StartTime = entity.StartTime;
+            model.Title = entity.Title;
+            model.AuthorName = string.Format("{0} {1}", entity.Author.FirstName, entity.Author.LastName);
+
+            if (entity.Location != null)
+            {
+                model.Latitude = entity.Location.Latitude;
+                model.Longitude = entity.Location.Longitude;
+            }
+
+            if (entity.EventInstrument != null)
+            {
+                model.IsGuitarUsed = entity.EventInstrument.IsGuitarUsed;
+                model.IsViolinUsed = entity.EventInstrument.IsViolinUsed;
+                model.IsVocalApplicable = entity.EventInstrument.IsVocalApplicable;
+            }
+
+            return model;
         }
     }
 }

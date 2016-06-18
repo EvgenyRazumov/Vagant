@@ -254,6 +254,7 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Custom\bindings\timelineBinding.js" />
     <Content Include="Scripts\Custom\createEventPage.js" />
+    <Content Include="Scripts\Custom\detailsEventPage.js" />
     <Content Include="Scripts\Custom\map\mapManager.js" />
     <Content Include="Scripts\Custom\models\event\createEvent.js" />
     <Content Include="Scripts\Custom\models\event\event.js" />

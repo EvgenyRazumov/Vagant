@@ -60,6 +60,9 @@ namespace Vagant.Web
                 .Include("~/Scripts/Custom/sound/soundCloudPlayer.js")
                 .Include("~/Scripts/Custom/createEventPage.js"));
 
+            bundles.Add(new ScriptBundle("~/bundles/DetailsEvent")
+                .Include("~/Scripts/Custom/detailsEventPage.js"));
+
             bundles.Add(new ScriptBundle("~/bundles/Event")
                 .Include("~/Scripts/Custom/Models/Event/event.js"));
 

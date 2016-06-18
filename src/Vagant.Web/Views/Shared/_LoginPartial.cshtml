@@ -6,12 +6,13 @@
     {
     @Html.AntiForgeryToken()
 
+    @Html.ActionLink("Create Event", "Create", "Event", routeValues: null, htmlAttributes: new { @class = "btn btn-default create-event-button" })
+        
     <ul class="nav navbar-nav navbar-right">
         <li>
-            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
         </li>
         <li>
-            @Html.ActionLink("Create Event", "Create", "Event", routeValues: null, htmlAttributes: new { id = "createEventLink" })
+            @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
         </li>
         <li>
             @Html.ActionLink("My Profile", "Index", "Profile", routeValues: new { userId = User.Identity.GetUserId() }, htmlAttributes: new { id = "myProfileLink" })

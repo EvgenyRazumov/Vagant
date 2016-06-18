@@ -61,13 +61,13 @@ namespace Vagant.Web.Controllers
                 int? audioId = null;
 
                 var logoFile = GetImageFileFromStream();
-                if (logoFile != null)
+                if (logoFile != null && logoFile.ContentLength > 0)
                 {
                     logoId = SaveFile(logoFile);
                 }
 
                 var audioFile = GetAudioFileFromStream();
-                if (audioFile != null)
+                if (audioFile != null && audioFile.ContentLength > 0)
                 {
                     audioId = SaveFile(audioFile);
                 }
@@ -320,7 +320,8 @@ namespace Vagant.Web.Controllers
                     IsVocalApplicable = model.IsVocalApplicable
                 },
                 Title = model.Title,
-                LogoId = model.LogoId
+                LogoId = model.LogoId,
+                AudioId = model.AudioId
             };
         }
 

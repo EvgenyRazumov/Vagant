@@ -18,7 +18,10 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                @Html.ActionLink("Vagant", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+                <a href="@Url.Action("Index", "Home")" class="navbar-left site-home-link">
+                    <img src="@Url.Content("~/Content/logo.png")" class="logo-image" />
+                    <span class="site-title">Vagant</span>
+                </a>
             </div>
             <div class="navbar-collapse collapse">
                 @Html.Partial("_LoginPartial")

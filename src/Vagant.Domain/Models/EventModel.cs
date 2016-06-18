@@ -24,6 +24,9 @@ namespace Vagant.Domain.Models
 
         public int? LogoId { get; set; }
 
+        public int? AudioId { get; set; }
+
+
         public string AuthorId { get; set; }
 
         public string AuthorName { get; set; }

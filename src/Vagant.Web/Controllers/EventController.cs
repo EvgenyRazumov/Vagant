@@ -58,19 +58,29 @@ namespace Vagant.Web.Controllers
             try
             {
                 int? logoId = null;
-                var file = GetFileFromStream();
-                if (file != null)
+                int? audioId = null;
+
+                var logoFile = GetImageFileFromStream();
+                if (logoFile != null)
                 {
-                    logoId = SaveLogo(file);
+                    logoId = SaveFile(logoFile);
                 }
 
-                _eventService.CreateEvent(GetEventModel(viewModel, logoId));
+                var audioFile = GetAudioFileFromStream();
+                if (audioFile != null)
+                {
+                    audioId = SaveFile(audioFile);
+                }
+
+                var id = _eventService.CreateEvent(GetEventModel(viewModel, logoId, audioId));
+
+                return RedirectToAction("Details", "Event", new { id = id });
+
             }
             catch (Exception ex)
             {
+                return RedirectToAction("Index", "Home");
             }
-            return RedirectToAction("Index", "Home");
-
         }
 
         //public ActionResult Edit(int id)
@@ -153,7 +163,10 @@ namespace Vagant.Web.Controllers
 
         private EditEventViewModel GetEmptyEventViewModel()
         {
-            var result = new EditEventViewModel();
+            var result = new EditEventViewModel()
+            {
+                StartTime = DateTime.Now
+            };
 
             return result;
         }
@@ -175,7 +188,7 @@ namespace Vagant.Web.Controllers
 
         #region Logo
 
-        private int? SaveLogo(HttpPostedFileBase file)
+        private int? SaveFile(HttpPostedFileBase file)
         {
             var imageFile = new FileData
             {
@@ -187,11 +200,21 @@ namespace Vagant.Web.Controllers
             return imageFile.Id;
         }
 
-        private HttpPostedFileBase GetFileFromStream()
+        private HttpPostedFileBase GetImageFileFromStream()
         {
             if (Request.Files.Count > 0)
             {
-                return Request.Files[0];
+                return Request.Files["logo"];
+            }
+
+            return null;
+        }
+
+        private HttpPostedFileBase GetAudioFileFromStream()
+        {
+            if (Request.Files.Count > 0)
+            {
+                return Request.Files["audio"];
             }
 
             return null;
@@ -251,7 +274,7 @@ namespace Vagant.Web.Controllers
 
         #endregion
 
-        private EventModel GetEventModel(EditEventViewModel viewModel, int? logoId)
+        private EventModel GetEventModel(EditEventViewModel viewModel, int? logoId, int? audioId)
         {
             return new EventModel
             {
@@ -263,6 +286,7 @@ namespace Vagant.Web.Controllers
 
                 Title = viewModel.Title,
                 LogoId = logoId,
+                AudioId = audioId,
 
                 Latitude = viewModel.Location.Latitude,
                 Longitude = viewModel.Location.Longitude,

@@ -96,6 +96,7 @@ namespace Vagant.Business.Services
             entity.EndTime = model.EndTime;
             entity.FullDescription = model.FullDescription;
             entity.LogoId = model.LogoId;
+            entity.AudioId = model.AudioId;
             entity.StartTime = model.StartTime;
             entity.Title = model.Title;
 
@@ -123,6 +124,7 @@ namespace Vagant.Business.Services
             model.EndTime = entity.EndTime;
             model.FullDescription = entity.FullDescription;
             model.LogoId = entity.LogoId;
+            model.AudioId = entity.AudioId;
             model.StartTime = entity.StartTime;
             model.Title = entity.Title;
             model.AuthorName = string.Format("{0} {1}", entity.Author.FirstName, entity.Author.LastName);

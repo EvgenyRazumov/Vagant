@@ -247,13 +247,19 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
-    <Content Include="Scripts\Custom\Models\Event\createEvent.js" />
-    <Content Include="Scripts\Custom\Models\Event\event.js" />
-    <Content Include="Scripts\Custom\Models\Map\mapManager.js" />
-    <Content Include="Scripts\Custom\Models\Profile\achievements.js" />
-    <Content Include="Scripts\Custom\Models\Profile\contactInformation.js" />
-    <Content Include="Scripts\Custom\Models\Profile\profile.js" />
-    <Content Include="Scripts\Custom\Models\Profile\profileHistory.js" />
+    <Content Include="Scripts\Custom\models\event\createEvent.js" />
+    <Content Include="Scripts\Custom\models\event\event.js" />
+    <Content Include="Scripts\Custom\map\mapManager.js" />
+    <Content Include="Scripts\Custom\models\event\eventGridManager.js" />
+    <Content Include="Scripts\Custom\models\event\eventInstrumentModel.js" />
+    <Content Include="Scripts\Custom\models\event\eventList.js" />
+    <Content Include="Scripts\Custom\models\event\eventListItem.js" />
+    <Content Include="Scripts\Custom\models\event\instrumentFilter.js" />
+    <Content Include="Scripts\Custom\models\profile\achievements.js" />
+    <Content Include="Scripts\Custom\models\profile\contactInformation.js" />
+    <Content Include="Scripts\Custom\models\profile\profile.js" />
+    <Content Include="Scripts\Custom\models\profile\profileHistory.js" />
+    <Content Include="Scripts\Custom\sound\soundCloudPlayer.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
@@ -262,6 +268,7 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\knockout.js" />
+    <Content Include="Scripts\libs\soundcloud-api.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -310,8 +317,6 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Base\" />
-    <Folder Include="Views\Event\" />
-    <Folder Include="Views\Profile\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

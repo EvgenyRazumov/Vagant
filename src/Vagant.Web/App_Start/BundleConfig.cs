@@ -1,5 +1,4 @@
-﻿using System.Web;
-using System.Web.Optimization;
+﻿using System.Web.Optimization;
 
 namespace Vagant.Web
 {
@@ -8,8 +7,9 @@ namespace Vagant.Web
         // For more information on bundling, visit http://go.microsoft.com/fwlink/?LinkId=301862
         public static void RegisterBundles(BundleCollection bundles)
         {
-            bundles.Add(new ScriptBundle("~/bundles/jquery").Include(
-                        "~/Scripts/jquery-{version}.js"));
+            bundles.Add(new ScriptBundle("~/bundles/js-libraries")
+                .Include("~/Scripts/jquery-{version}.js")
+                .Include("~/Scripts/knockout.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/jqueryval").Include(
                         "~/Scripts/jquery.validate*"));
@@ -27,6 +27,20 @@ namespace Vagant.Web
                       "~/Content/bootstrap.css",
                       "~/Content/Common/site.css",
                       "~/Content/Common/reset.css"));
+
+            RegisterProfileBundles(bundles);
+        }
+
+        public static void RegisterProfileBundles(BundleCollection bundles)
+        {
+            bundles.Add(new ScriptBundle("~/bundles/Profile")
+                .Include("~/Scripts/Custom/Models/Profile/achievements.js")
+                .Include("~/Scripts/Custom/Models/Profile/contactInformation.js")
+                .Include("~/Scripts/Custom/Models/Profile/profileHistory.js")
+                .Include("~/Scripts/Custom/Models/Profile/profile.js"));
+
+            bundles.Add(new StyleBundle("~/Content/css/Profile")
+                .IncludeDirectory("~/Content/Profile/", "*.css"));
         }
     }
 }

@@ -1,22 +1,67 @@
-﻿using System.Web.Mvc;
-using Vagant.Domain.Services;
+﻿using System;
+using System.Web.Mvc;
+using Vagant.Web.Models.Profile;
 
 namespace Vagant.Web.Controllers
 {
-    public class ProfileController : Controller
+    public class ProfileController : BaseController
     {
-        private readonly IUserService _userService;
+        #region Ctor
 
-        public ProfileController(IUserService userService)
+        public ProfileController()
         {
-            _userService = userService;
         }
 
-        // GET: Profile
-        public ActionResult Index()
+        #endregion
+
+        #region Actions
+
+        public ActionResult Index(int userId)
         {
-            var users = _userService.GetAll();
-            return View();
+            try
+            {
+                var viewModel = GetEditableProfileViewModel(userId);
+                return View(viewModel);
+            }
+            catch (Exception)
+            {
+                //todo: log error
+                return RedirectToAction("Index", "Home");
+            }
         }
+
+        public ActionResult Details(int userId)
+        {
+            try
+            {
+                var viewModel = GetProfileDetailsViewModel(userId);
+                return View(viewModel);
+            }
+            catch (Exception)
+            {
+                //todo: log error
+                return RedirectToAction("Index", "Home");
+            }
+        }
+
+        #endregion
+
+        #region Private Methods
+
+        private EditProfileViewModel GetEditableProfileViewModel(int userId)
+        {
+            var result = new EditProfileViewModel();
+
+            return result;
+        }
+
+        private ProfileDetailsViewModel GetProfileDetailsViewModel(int userId)
+        {
+            var result = new ProfileDetailsViewModel();
+
+            return result;
+        }
+
+        #endregion
     }
 }

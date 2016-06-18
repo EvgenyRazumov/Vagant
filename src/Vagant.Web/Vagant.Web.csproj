@@ -209,6 +209,7 @@
     <Compile Include="Models\ContactInfo\EditContactInfoViewModel.cs" />
     <Compile Include="Models\ContactInfo\ReadOnlyContactInfoViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Message\SendMessageViewModel.cs" />
     <Compile Include="Models\ProfileHistory\ProfileHistoryItemViewModel.cs" />
     <Compile Include="Models\ProfileHistory\ProfileHistoryViewModel.cs" />
     <Compile Include="Models\Profile\BaseProfileViewModel.cs" />

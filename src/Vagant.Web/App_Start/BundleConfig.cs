@@ -25,7 +25,8 @@ namespace Vagant.Web
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",
-                      "~/Content/site.css"));
+                      "~/Content/Common/site.css",
+                      "~/Content/Common/reset.css"));
         }
     }
 }

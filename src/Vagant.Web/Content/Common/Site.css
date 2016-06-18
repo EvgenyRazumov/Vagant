@@ -22,3 +22,19 @@ select,
 textarea {
     max-width: 280px;
 }
+
+/* Bootstrap override */
+
+.navbar {
+    background-color: #FFF;
+    border-bottom: 3px solid #D02013;
+}
+
+.navbar-toggle .icon-bar {
+    background-color: #000;
+}
+
+.navbar a {
+    color: black;
+}
+

@@ -28,6 +28,7 @@ namespace Vagant.Web
                       "~/Content/Common/site.css",
                       "~/Content/Common/reset.css"));
 
+            RegisterHomeBundles(bundles);
             RegisterProfileBundles(bundles);
             RegisterEventBundles(bundles);
         }
@@ -56,7 +57,16 @@ namespace Vagant.Web
                 .Include("~/Content/Event/createEvent.css"));
 
             bundles.Add(new StyleBundle("~/bundles/css/Event")
-                .Include("~/Content/Event/Event.css"));
+                .Include("~/Content/Event/event.css"));
+        }
+
+        public static void RegisterHomeBundles(BundleCollection bundles)
+        {
+            bundles.Add(new ScriptBundle("~/bundles/Home")
+                .Include("~/Scripts/Custom/Models/Home/home.js"));
+
+            bundles.Add(new StyleBundle("~/bundles/css/Home")
+                .Include("~/Content/Home/home.css"));
         }
     }
 }

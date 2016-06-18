@@ -236,6 +236,7 @@
     <Content Include="Content\Common\reset.css" />
     <Content Include="Content\Event\createEvent.css" />
     <Content Include="Content\Event\event.css" />
+    <Content Include="Content\Home\home.css" />
     <Content Include="Content\Profile\achievements.css" />
     <Content Include="Content\Profile\contentInformation.css" />
     <Content Include="Content\Profile\profile.css" />
@@ -249,6 +250,7 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Custom\Models\Event\createEvent.js" />
     <Content Include="Scripts\Custom\Models\Event\event.js" />
+    <Content Include="Scripts\Custom\Models\Home\home.js" />
     <Content Include="Scripts\Custom\Models\Profile\achievements.js" />
     <Content Include="Scripts\Custom\Models\Profile\contactInformation.js" />
     <Content Include="Scripts\Custom\Models\Profile\profile.js" />

@@ -248,6 +248,7 @@
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Custom\Models\Event\createEvent.js" />
     <Content Include="Scripts\Custom\Models\Event\event.js" />
+    <Content Include="Scripts\Custom\Models\Map\mapManager.js" />
     <Content Include="Scripts\Custom\Models\Profile\achievements.js" />
     <Content Include="Scripts\Custom\Models\Profile\contactInformation.js" />
     <Content Include="Scripts\Custom\Models\Profile\profile.js" />
@@ -309,7 +310,6 @@
     <Folder Include="App_Data\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\Event\" />
-    <Folder Include="Views\Profile\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

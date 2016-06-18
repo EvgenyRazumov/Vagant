@@ -22,7 +22,7 @@ namespace Vagant.Web.Controllers
             {
                 var viewModel = GetEmptyEventViewModel();
 
-                return View(viewModel);
+                return View("CreateEvent", viewModel);
             }
             catch (Exception)
             {
@@ -37,7 +37,7 @@ namespace Vagant.Web.Controllers
             {
                 var viewModel = GetEditableEventViewModel(id);
 
-                return View(viewModel);
+                return View("EditEvent", viewModel);
             }
             catch (Exception)
             {

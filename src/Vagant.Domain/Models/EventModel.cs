@@ -1,9 +1,12 @@
 ﻿using System;
+using System.Collections.Generic;
 
-namespace Vagant.Domain.Entities
+namespace Vagant.Domain.Models
 {
-    public class Event : BaseEntity
+    public class EventModel
     {
+        public int Id { get; set; }
+
         public string Title { get; set; }
 
         public string BriefDescription { get; set; }
@@ -16,18 +19,16 @@ namespace Vagant.Domain.Entities
 
         public double Rate { get; set; }
 
-        public int VotesNumber { get; set; }
+        public double Latitude { get; set; }
 
-        public int LocationId { get; set; }
+        public double Longitude { get; set; }
+
+        public string LocationDisplayName { get; set; }
 
         public int? LogoId { get; set; }
 
         public string AuthorId { get; set; }
 
-        public virtual Location Location { get; set; }
-
-        public virtual ImageFile Logo { get; set; }
-
-        public virtual ApplicationUser Author { get; set; }
+        public IList<int> Images { get; set; }
     }
 }

@@ -13,6 +13,7 @@
         var vagantAppParams = {};
 
         vagantAppParams.getEventsDataUrl = '@Url.Action("GetEvents", "Event")';
+        vagantAppParams.gotoEventsDetailsUrl = '@Url.Action("Details", "Event")';
     </script>
 
     @Scripts.Render("~/bundles/Timeline")
@@ -24,6 +25,7 @@
     </div>
     <div class="home-page-body clearfix">
         <div class="events-column col-xs-12 col-sm-12 col-md-9">
+            <div data-bind="template: {name: 'eventManagerTemplate', data: gridManager }"></div>
         </div>
         <div class="filters-column col-xs-12 col-sm-12 col-md-3">
             <div class="filters">
@@ -37,3 +39,4 @@
 </div>
 
 @Html.Partial("Home/_Timeline")
+@Html.Partial("Event/EventManager")

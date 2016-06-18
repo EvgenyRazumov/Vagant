@@ -1,0 +1,5 @@
+﻿.event-list {
+    box-sizing: border-box;
+
+    display: flex;
+}

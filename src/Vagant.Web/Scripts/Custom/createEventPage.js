@@ -1,7 +1,7 @@
 ﻿var vagantApp = window.vagantApp || {};
 vagantApp.event = vagantApp.event || {};
 
-vagantApp.event.CreateEvent = function () {
+vagantApp.event.CreateEventPage = function () {
     var self = this;
     self.map = null;
     self.marker = null;
@@ -44,6 +44,6 @@ vagantApp.event.CreateEvent = function () {
 };
 
 $(function () {
-    var pageModel = new vagantApp.event.CreateEvent();
-    pageModel.init();
+    var page = new vagantApp.event.CreateEventPage();
+    page.init();
 });

@@ -75,6 +75,18 @@
     <Compile Include="Migrations\201606181350564_ImageFileChanges.Designer.cs">
       <DependentUpon>201606181350564_ImageFileChanges.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606181715066_ImageFileToFileData.cs" />
+    <Compile Include="Migrations\201606181715066_ImageFileToFileData.Designer.cs">
+      <DependentUpon>201606181715066_ImageFileToFileData.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606181854567_AddedInstruments.cs" />
+    <Compile Include="Migrations\201606181854567_AddedInstruments.Designer.cs">
+      <DependentUpon>201606181854567_AddedInstruments.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606181951163_AddedAudio.cs" />
+    <Compile Include="Migrations\201606181951163_AddedAudio.Designer.cs">
+      <DependentUpon>201606181951163_AddedAudio.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\GenericRepository.cs" />
@@ -102,6 +114,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606181350564_ImageFileChanges.resx">
       <DependentUpon>201606181350564_ImageFileChanges.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606181715066_ImageFileToFileData.resx">
+      <DependentUpon>201606181715066_ImageFileToFileData.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606181854567_AddedInstruments.resx">
+      <DependentUpon>201606181854567_AddedInstruments.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606181951163_AddedAudio.resx">
+      <DependentUpon>201606181951163_AddedAudio.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

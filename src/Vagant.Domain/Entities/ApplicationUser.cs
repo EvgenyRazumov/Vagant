@@ -12,7 +12,7 @@ namespace Vagant.Domain.Entities
 
         public int? ContactInfoId { get; set; }
 
-        public virtual ImageFile Avatar { get; set; }
+        public virtual FileData Avatar { get; set; }
 
         public virtual UserContactInfo ContactInfo { get; set; }
     }

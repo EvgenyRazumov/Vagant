@@ -55,7 +55,9 @@ namespace Vagant.Web
         public static void RegisterEventBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/CreateEvent")
-                .Include("~/Scripts/Custom/Models/Event/createEvent.js"));
+                .Include("~/Scripts/libs/soundcloud-api.min.js")
+                .Include("~/Scripts/Custom/sound/soundCloudPlayer.js")
+                .Include("~/Scripts/Custom/Models/Event/createEventPage.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/Event")
                 .Include("~/Scripts/Custom/Models/Event/event.js"));

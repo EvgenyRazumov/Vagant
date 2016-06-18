@@ -156,7 +156,7 @@ namespace Vagant.Web.Controllers
                     FirstName = model.FirstName,
                     LastName = model.LastName,
                     ContactInfo = new UserContactInfo(),
-                    Avatar = new ImageFile()
+                    Avatar = new FileData()
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)

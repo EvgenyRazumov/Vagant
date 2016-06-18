@@ -1,4 +1,6 @@
-﻿using Vagant.Domain.Models;
+﻿using System;
+using System.Collections.Generic;
+using Vagant.Domain.Models;
 
 namespace Vagant.Domain.Services
 {
@@ -9,5 +11,9 @@ namespace Vagant.Domain.Services
         void UpdateEvent(EventModel model);
 
         double UpdateRating(int eventId, int newValue);
+
+        EventModel GetEvent(int eventId);
+
+        IList<EventModel> GetEvents(DateTime startDate, DateTime endDate);
     }
 }

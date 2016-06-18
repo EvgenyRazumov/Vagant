@@ -199,8 +199,8 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\EventController.cs" />
-    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\FileDataController.cs" />
+    <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Global.asax.cs">
@@ -238,6 +238,9 @@
     <Content Include="Content\Event\createEvent.css" />
     <Content Include="Content\Event\event.css" />
     <Content Include="Content\Home\home.css" />
+    <Content Include="Content\Images\main_img.png" />
+    <Content Include="Content\jquery.jqtimeline.css" />
+    <Content Include="Content\jquery.timeline.blue.css" />
     <Content Include="Content\Profile\achievements.css" />
     <Content Include="Content\Profile\contentInformation.css" />
     <Content Include="Content\Profile\profile.css" />
@@ -250,22 +253,31 @@
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
     <Content Include="Scripts\Custom\createEventPage.js" />
-    <Content Include="Scripts\Custom\Models\Event\createEvent.js" />
-    <Content Include="Scripts\Custom\Models\Event\event.js" />
-    <Content Include="Scripts\Custom\Models\Home\home.js" />
-    <Content Include="Scripts\Custom\Models\Map\mapManager.js" />
-    <Content Include="Scripts\Custom\Models\Profile\achievements.js" />
-    <Content Include="Scripts\Custom\Models\Profile\contactInformation.js" />
-    <Content Include="Scripts\Custom\Models\Profile\profile.js" />
-    <Content Include="Scripts\Custom\Models\Profile\profileHistory.js" />
+    <Content Include="Scripts\Custom\map\mapManager.js" />
+    <Content Include="Scripts\Custom\models\event\createEvent.js" />
+    <Content Include="Scripts\Custom\models\event\event.js" />
+    <Content Include="Scripts\Custom\models\event\eventGridManager.js" />
+    <Content Include="Scripts\Custom\models\event\eventInstrumentModel.js" />
+    <Content Include="Scripts\Custom\models\event\eventList.js" />
+    <Content Include="Scripts\Custom\models\event\eventListItem.js" />
+    <Content Include="Scripts\Custom\models\event\instrumentFilter.js" />
+    <Content Include="Scripts\Custom\models\home\home.js" />
+    <Content Include="Scripts\Custom\models\home\timelineModel.js" />
+    <Content Include="Scripts\Custom\models\profile\achievements.js" />
+    <Content Include="Scripts\Custom\models\profile\contactInformation.js" />
+    <Content Include="Scripts\Custom\models\profile\profile.js" />
+    <Content Include="Scripts\Custom\models\profile\profileHistory.js" />
+    <Content Include="Scripts\Custom\sound\soundCloudPlayer.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.jqtimeline.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\knockout.js" />
+    <Content Include="Scripts\libs\soundcloud-api.min.js" />
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
@@ -310,6 +322,7 @@
     <Content Include="Views\Event\CreateEvent.cshtml" />
     <Content Include="Views\Event\Details.cshtml" />
     <Content Include="Views\Event\EditEvent.cshtml" />
+    <Content Include="Views\Shared\Home\_Timeline.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

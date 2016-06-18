@@ -113,20 +113,6 @@ namespace Vagant.Web.Controllers
             }
         }
 
-        public ActionResult AddComment(string text)
-        {
-            try
-            {
-                //todo: create
-                return new SuccessJsonResult();
-            }
-            catch (Exception)
-            {
-                //todo: log error
-                return new HttpBadRequestResult();
-            }
-        }
-
         public ActionResult GetEvents(DateTime startDate, DateTime endDate)
         {
             try
@@ -156,6 +142,44 @@ namespace Vagant.Web.Controllers
             }
             catch (Exception)
             {
+                return new HttpBadRequestResult();
+            }
+        }
+
+        [HttpPost]
+        [Authorize]
+        public ActionResult AddComment(int eventId, string text)
+        {
+            try
+            {
+                var comment = new EventComment
+                {
+                    EventId = eventId,
+                    Text = text,
+                    UserId = UserId
+                };
+                _eventService.CreateComment(comment);
+                return new SuccessJsonResult();
+            }
+            catch (Exception)
+            {
+                //todo: log error
+                return new HttpBadRequestResult();
+            }
+        }
+
+        [HttpPost]
+        [Authorize]
+        public ActionResult UpdateRating(int eventId, int rating)
+        {
+            try
+            {
+                var newRating = _eventService.UpdateRating(UserId, eventId, rating);
+                return new SuccessJsonResult(newRating);
+            }
+            catch (Exception)
+            {
+                //todo: log error
                 return new HttpBadRequestResult();
             }
         }
@@ -302,8 +326,6 @@ namespace Vagant.Web.Controllers
 
         private EventDetailsViewModel GetEventDetailsViewModel(EventModel model)
         {
-            var user = _userService.GetById(model.AuthorId);
-
             return new EventDetailsViewModel
             {
                 AuthorName = model.AuthorName,
@@ -324,7 +346,8 @@ namespace Vagant.Web.Controllers
                 },
                 Title = model.Title,
                 LogoId = model.LogoId,
-                AudioId = model.AudioId
+                AudioId = model.AudioId,
+                IsRatingEditable = _eventService.IsRatingEditable(UserId, model.Id)
             };
         }
 

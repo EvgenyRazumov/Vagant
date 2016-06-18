@@ -87,6 +87,10 @@
     <Compile Include="Migrations\201606181951163_AddedAudio.Designer.cs">
       <DependentUpon>201606181951163_AddedAudio.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606182357031_Rating.cs" />
+    <Compile Include="Migrations\201606182357031_Rating.Designer.cs">
+      <DependentUpon>201606182357031_Rating.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\GenericRepository.cs" />
@@ -123,6 +127,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606181951163_AddedAudio.resx">
       <DependentUpon>201606181951163_AddedAudio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606182357031_Rating.resx">
+      <DependentUpon>201606182357031_Rating.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

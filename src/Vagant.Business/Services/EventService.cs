@@ -49,30 +49,38 @@ namespace Vagant.Business.Services
             _uow.Commit();
         }
 
-        public double UpdateRating(int eventId, int newValue)
+        public double UpdateRating(string userId, int eventId, int ratingValue)
         {
             var eventRepository = _uow.GetRepository<Event>();
+            var eventRatingRepository = _uow.GetRepository<EventRating>();
+
+            eventRatingRepository.Create(new EventRating
+            {
+                EventId = eventId,
+                RatingValue = ratingValue,
+                VoterId = userId
+            });
+            _uow.Commit();
 
             var @event = eventRepository.GetByKey(eventId);
-            if (@event == null)
-            {
-                throw new ArgumentNullException();
-            }
+            var ratings = eventRatingRepository.Get(x => x.EventId == eventId);
 
-            if (@event.VotesNumber == 0)
-            {
-                @event.Rate = newValue;
-            }
-            else
-            {
-                @event.Rate = (@event.Rate * @event.VotesNumber + newValue) / (@event.VotesNumber + 1);
-            }
-            @event.VotesNumber++;
-
+            @event.Rate = (double)ratings.Sum(x => x.RatingValue) / ratings.Count();
             eventRepository.Update(@event);
             _uow.Commit();
 
             return @event.Rate;
+        }
+
+        public bool IsRatingEditable(string userId, int eventId)
+        {
+            if (string.IsNullOrEmpty(userId))
+            {
+                return false;
+            }
+
+            var eventRatingRepository = _uow.GetRepository<EventRating>();
+            return eventRatingRepository.Get(x => x.VoterId == userId && x.EventId == eventId).Count() == 0;
         }
 
         public EventModel GetEvent(int eventId)
@@ -88,6 +96,16 @@ namespace Vagant.Business.Services
             var events = eventRepository.Get(x => x.StartTime >= startDate.Date && x.StartTime <= endDate.Date);
             return events.Select(GetModel).ToList();
         }
+
+        public void CreateComment(EventComment comment)
+        {
+            var commentRepository = _uow.GetRepository<EventComment>();
+
+            commentRepository.Create(comment);
+            _uow.Commit();
+        }
+
+        #region Private Methods
 
         private void MapToEntity(EventModel model, Event entity)
         {
@@ -144,5 +162,7 @@ namespace Vagant.Business.Services
 
             return model;
         }
+
+        #endregion
     }
 }

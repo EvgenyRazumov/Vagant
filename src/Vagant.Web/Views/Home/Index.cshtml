@@ -3,7 +3,9 @@
 }
 
 @section Styles {
+    @Styles.Render("~/bundles/css/Timeline")
     @Styles.Render("~/bundles/css/Home")
+    
 }
 
 @section BodyScripts {
@@ -13,9 +15,25 @@
         vagantAppParams.getEventsDataUrl = '@Url.Action("GetEvents", "Event")';
     </script>
 
+    @Scripts.Render("~/bundles/Timeline")
     @Scripts.Render("~/bundles/Home")
 }
 
 <div class="page home-page">
+    <div class="home-page-header clearfix">
+    </div>
+    <div class="home-page-body clearfix">
+        <div class="events-column col-xs-12 col-sm-12 col-md-9">
+        </div>
+        <div class="filters-column col-xs-12 col-sm-12 col-md-3">
+            <div class="filters">
 
+            </div>
+            <div class="notifications">
+
+            </div>
+        </div>
+    </div>
 </div>
+
+@Html.Partial("Home/_Timeline")

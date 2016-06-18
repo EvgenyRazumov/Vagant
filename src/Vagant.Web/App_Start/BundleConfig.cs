@@ -28,6 +28,13 @@ namespace Vagant.Web
                       "~/Content/Common/site.css",
                       "~/Content/Common/reset.css"));
 
+            bundles.Add(new ScriptBundle("~/bundles/Timeline")
+                .Include("~/Scripts/jquery.jqtimeline.js"));
+
+            bundles.Add(new StyleBundle("~/bundles/css/Timeline")
+                .Include("~/Content/jquery.jqtimeline.css")
+                .Include("~/Content/jquery.timeline.blue.css"));
+
             RegisterHomeBundles(bundles);
             RegisterProfileBundles(bundles);
             RegisterEventBundles(bundles);
@@ -65,6 +72,7 @@ namespace Vagant.Web
         public static void RegisterHomeBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/Home")
+                .Include("~/Scripts/Custom/Models/Home/timelineModel.js")
                 .Include("~/Scripts/Custom/models/event/instrumentFilter.js")
                 .Include("~/Scripts/Custom/models/event/eventInstrumentModel.js")
                 .Include("~/Scripts/Custom/models/event/eventListItem.js")

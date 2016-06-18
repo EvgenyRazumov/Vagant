@@ -153,6 +153,8 @@ namespace Vagant.Web.Controllers
                 {
                     UserName = model.Email,
                     Email = model.Email,
+                    FirstName = model.FirstName,
+                    LastName = model.LastName,
                     ContactInfo = new UserContactInfo(),
                     Avatar = new ImageFile()
                 };

@@ -29,6 +29,7 @@ namespace Vagant.Web
                       "~/Content/Common/reset.css"));
 
             RegisterProfileBundles(bundles);
+            RegisterEventBundles(bundles);
         }
 
         public static void RegisterProfileBundles(BundleCollection bundles)

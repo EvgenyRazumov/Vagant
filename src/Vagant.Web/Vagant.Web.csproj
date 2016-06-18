@@ -200,6 +200,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Global.asax.cs">
@@ -302,14 +303,15 @@
     <Content Include="Views\Shared\Profile\_ContactInfo.cshtml" />
     <Content Include="Views\Shared\Profile\_Achievements.cshtml" />
     <Content Include="Views\Shared\Profile\_ProfileHistory.cshtml" />
-    <Content Include="Views\Events\CreateEvent.cshtml" />
-    <Content Include="Views\Events\Details.cshtml" />
-    <Content Include="Views\Events\EditEvent.cshtml" />
+    <Content Include="Views\Event\CreateEvent.cshtml" />
+    <Content Include="Views\Event\Details.cshtml" />
+    <Content Include="Views\Event\EditEvent.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\Event\" />
+    <Folder Include="Views\Profile\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

@@ -2,6 +2,8 @@
 {
     public class ImageFile : BaseEntity
     {
-        public byte[] Date { get; set; }
+        public byte[] Data { get; set; }
+
+        public string ContentType { get; set; }
     }
 }

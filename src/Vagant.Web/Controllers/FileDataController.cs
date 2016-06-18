@@ -8,19 +8,19 @@ using Vagant.Domain.Services;
 
 namespace Vagant.Web.Controllers
 {
-    public class ImageController : Controller
+    public class FileDataController : Controller
     {
         #region Fields
 
-        private readonly IImageFileService _imageService;
+        private readonly IFileDataService _fileDataService;
 
         #endregion
 
         #region Ctor
 
-        public ImageController(IImageFileService imageService)
+        public FileDataController(IFileDataService fileDataService)
         {
-            _imageService = imageService;
+            _fileDataService = fileDataService;
         }
 
         #endregion
@@ -34,15 +34,15 @@ namespace Vagant.Web.Controllers
             {
                 var file = GetFileFromStream();
 
-                var imageFile = new ImageFile
+                var fileData = new FileData
                 {
                     Data = ReadToEnd(file.InputStream),
                     ContentType = file.ContentType
                 };
 
-                _imageService.Create(imageFile);
+                _fileDataService.Create(fileData);
 
-                return new SuccessJsonResult(imageFile.Id);
+                return new SuccessJsonResult(fileData.Id);
             }
             catch (Exception)
             {
@@ -56,14 +56,14 @@ namespace Vagant.Web.Controllers
             var context = HttpContext;
             try
             {
-                var imageFile = _imageService.Get(id);
+                var fileData = _fileDataService.Get(id);
 
-                if (imageFile == null)
+                if (fileData == null)
                 {
                     return new HttpNotFoundResult();
                 }
 
-                return File(imageFile.Data, imageFile.ContentType);
+                return File(fileData.Data, fileData.ContentType);
             }
             catch (Exception)
             {

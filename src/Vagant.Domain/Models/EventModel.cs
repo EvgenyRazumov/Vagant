@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace Vagant.Domain.Models
 {
@@ -23,12 +22,17 @@ namespace Vagant.Domain.Models
 
         public double Longitude { get; set; }
 
-        public string LocationDisplayName { get; set; }
-
         public int? LogoId { get; set; }
 
         public string AuthorId { get; set; }
 
-        public IList<int> Images { get; set; }
+        public string AuthorName { get; set; }
+
+
+        public bool IsGuitarUsed { get; set; }
+
+        public bool IsViolinUsed { get; set; }
+
+        public bool IsVocalApplicable { get; set; }
     }
 }

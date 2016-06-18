@@ -49,7 +49,8 @@ namespace Vagant.Web.App_Start
         private static void RegisterServices(IUnityContainer container)
         {
             container.RegisterType<IUserService, UserService>(new PerRequestLifetimeManager());
-            container.RegisterType<IImageFileService, ImageFileService>(new PerRequestLifetimeManager());
+            container.RegisterType<IFileDataService, FileDataService>(new PerRequestLifetimeManager());
+            container.RegisterType<IEventService, EventService>(new PerRequestLifetimeManager());
         }
     }
 }

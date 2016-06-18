@@ -1,6 +1,6 @@
 ﻿namespace Vagant.Domain.Entities
 {
-    public class ImageFile : BaseEntity
+    public class FileData : BaseEntity
     {
         public byte[] Data { get; set; }
 

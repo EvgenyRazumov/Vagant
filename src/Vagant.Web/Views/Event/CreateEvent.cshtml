@@ -14,17 +14,84 @@
 }
 
 <div class="page event-page">
-    <div class="event-header">
-        <div class="event-image-container">
-            <img class="profile-image" src="" alt="no image" />
-        </div>
-        <div class="event-main-information">
-
-        </div>
-    </div>
     <div class="event-body">
-        
+        <div class="row">
+            <div class="col-md-8">
+                <section id="createEvent">
+                    @using (Html.BeginForm("Create", "Event", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
+                    {
+                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Title, new { @class = "col-md-2 control-label" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.Title, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.BriefDescription, new { @class = "col-md-2 control-label" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.BriefDescription, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.FullDescription, new { @class = "col-md-2 control-label" })
+                            <div class="col-md-10">
+                                @Html.TextAreaFor(m => m.FullDescription, new { @class = "form-control" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.StartTime, new { @class = "col-md-2 control-label" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.StartTime, new { @class = "form-control datetimepicker" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.EndTime, new { @class = "col-md-2 control-label" })
+                            <div class="col-md-10">
+                                @Html.TextBoxFor(m => m.EndTime, new { @class = "form-control datetimepicker" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.EventInstruments, new { @class = "col-md-2 control-label" })
+                            <div class="col-md-10">
+                                @Html.CheckBoxFor(m => m.EventInstruments.IsGuitarUsed) Guitar
+                                <br/>
+                                @Html.CheckBoxFor(m => m.EventInstruments.IsViolinUsed) Violin
+                                <br />
+                                @Html.CheckBoxFor(m => m.EventInstruments.IsVocalApplicable) Vocal
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Logo</label>
+                            <div class="col-md-10">
+                                <input type="file" name="logo" />
+                            </div>
+                        </div>
+                        @Html.HiddenFor(m => m.Location.Latitude, new { @class = "form-control", @id = "latitude" })
+                        @Html.HiddenFor(m => m.Location.Longitude, new { @class = "form-control", id = "longitude" })
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.Location, new { @class = "col-md-2 control-label" })
+                            <div class="col-md-10">
+                                <script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script>
+                                <div style='overflow:hidden;height:440px;'>
+                                    <div id='gmap_canvas' style='height:440px;'></div>
+                                    @*<style>
+                                        #gmap_canvas img {
+                                            max-width: none !important;
+                                            background: none !important;
+                                        }
+                                    </style>*@
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="col-md-offset-2 col-md-10">
+                                <input type="submit" value="Create" class="btn btn-default" />
+                            </div>
+                        </div>
+                    }
+                </section>
+            </div>
+        </div>
     </div>
 </div>
-
-<iframe id="testFrame" width="100%" height="450" scrolling="no" frameborder="no" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/80336801&amp;auto_play=false&amp;hide_related=false&amp;show_comments=true&amp;show_user=true&amp;show_reposts=false&amp;visual=false"></iframe>

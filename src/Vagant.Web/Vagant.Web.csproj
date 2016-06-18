@@ -200,7 +200,7 @@
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\EventController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\ImageController.cs" />
+    <Compile Include="Controllers\FileDataController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Global.asax.cs">
@@ -217,6 +217,7 @@
     <Compile Include="Models\Event\BaseEventViewModel.cs" />
     <Compile Include="Models\Event\EditEventViewModel.cs" />
     <Compile Include="Models\Event\EventDetailsViewModel.cs" />
+    <Compile Include="Models\Event\EventInstrumentsViewModel.cs" />
     <Compile Include="Models\Event\UpdateEventViewModel.cs" />
     <Compile Include="Models\Location\LocationViewModel.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
@@ -236,6 +237,7 @@
     <Content Include="Content\Common\reset.css" />
     <Content Include="Content\Event\createEvent.css" />
     <Content Include="Content\Event\event.css" />
+    <Content Include="Content\Home\home.css" />
     <Content Include="Content\Profile\achievements.css" />
     <Content Include="Content\Profile\contentInformation.css" />
     <Content Include="Content\Profile\profile.css" />
@@ -247,6 +249,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\Custom\createEventPage.js" />
     <Content Include="Scripts\Custom\models\event\createEvent.js" />
     <Content Include="Scripts\Custom\models\event\event.js" />
     <Content Include="Scripts\Custom\map\mapManager.js" />

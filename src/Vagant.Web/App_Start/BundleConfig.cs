@@ -28,6 +28,7 @@ namespace Vagant.Web
                       "~/Content/Common/site.css",
                       "~/Content/Common/reset.css"));
 
+            RegisterHomeBundles(bundles);
             RegisterProfileBundles(bundles);
             RegisterEventBundles(bundles);
         }
@@ -49,7 +50,7 @@ namespace Vagant.Web
             bundles.Add(new ScriptBundle("~/bundles/CreateEvent")
                 .Include("~/Scripts/libs/soundcloud-api.min.js")
                 .Include("~/Scripts/Custom/sound/soundCloudPlayer.js")
-                .Include("~/Scripts/Custom/Models/Event/createEvent.js"));
+                .Include("~/Scripts/Custom/Models/Event/createEventPage.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/Event")
                 .Include("~/Scripts/Custom/Models/Event/event.js"));
@@ -58,7 +59,16 @@ namespace Vagant.Web
                 .Include("~/Content/Event/createEvent.css"));
 
             bundles.Add(new StyleBundle("~/bundles/css/Event")
-                .Include("~/Content/Event/Event.css"));
+                .Include("~/Content/Event/event.css"));
+        }
+
+        public static void RegisterHomeBundles(BundleCollection bundles)
+        {
+            bundles.Add(new ScriptBundle("~/bundles/Home")
+                .Include("~/Scripts/Custom/Models/Home/home.js"));
+
+            bundles.Add(new StyleBundle("~/bundles/css/Home")
+                .Include("~/Content/Home/home.css"));
         }
     }
 }

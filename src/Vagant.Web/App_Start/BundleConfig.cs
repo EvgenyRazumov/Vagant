@@ -29,7 +29,8 @@ namespace Vagant.Web
                       "~/Content/Common/reset.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/Timeline")
-                .Include("~/Scripts/jquery.jqtimeline.js"));
+                .Include("~/Scripts/jquery.jqtimeline.js")
+                .Include("~/Scripts/Custom/bindings/timelineBinding.js"));
 
             bundles.Add(new StyleBundle("~/bundles/css/Timeline")
                 .Include("~/Content/jquery.jqtimeline.css")

@@ -42,5 +42,20 @@ namespace Vagant.Web
             bundles.Add(new StyleBundle("~/Content/css/Profile")
                 .IncludeDirectory("~/Content/Profile/", "*.css"));
         }
+
+        public static void RegisterEventBundles(BundleCollection bundles)
+        {
+            bundles.Add(new ScriptBundle("~/bundles/CreateEvent")
+                .Include("~/Scripts/Custom/Models/Event/createEvent.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/Event")
+                .Include("~/Scripts/Custom/Models/Event/event.js"));
+
+            bundles.Add(new StyleBundle("~/bundles/css/CreateEvent")
+                .Include("~/Content/Event/createEvent.css"));
+
+            bundles.Add(new StyleBundle("~/bundles/css/Event")
+                .Include("~/Content/Event/Event.css"));
+        }
     }
 }

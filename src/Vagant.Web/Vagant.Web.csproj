@@ -168,14 +168,27 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="Controllers\ProfileController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Achievement\AchievementSectionViewModel.cs" />
+    <Compile Include="Models\Achievement\AchievementViewModel.cs" />
+    <Compile Include="Models\BaseViewModel.cs" />
+    <Compile Include="Models\ContactInfo\BaseContactInfoViewModel.cs" />
+    <Compile Include="Models\ContactInfo\EditContactInfoViewModel.cs" />
+    <Compile Include="Models\ContactInfo\ReadOnlyContactInfoViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\ProfileHistory\ProfileHistoryItemViewModel.cs" />
+    <Compile Include="Models\ProfileHistory\ProfileHistoryViewModel.cs" />
+    <Compile Include="Models\Profile\BaseProfileViewModel.cs" />
+    <Compile Include="Models\Profile\EditProfileViewModel.cs" />
+    <Compile Include="Models\Profile\ProfileDetailsViewModel.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -237,6 +250,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Views\Base\" />
+    <Folder Include="Views\Profile\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff" />

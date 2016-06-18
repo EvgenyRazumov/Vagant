@@ -1,0 +1,20 @@
+﻿using System.Collections.Generic;
+using Vagant.Web.Models.Comment;
+using Vagant.Web.Models.ContactInfo;
+using Vagant.Web.Models.User;
+
+namespace Vagant.Web.Models.Event
+{
+    public class EventDetailsViewModel: BaseEventViewModel
+    {
+        #region Properties
+
+        public ReadOnlyContactInfoViewModel ContactInfo { get; set; }
+
+        public IList<CommentViewModel> Comments { get; set; }
+
+        public IList<UserViewModel> Visitors { get; set; }
+
+        #endregion
+    }
+}

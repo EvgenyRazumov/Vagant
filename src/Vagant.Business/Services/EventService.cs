@@ -117,6 +117,7 @@ namespace Vagant.Business.Services
         {
             var model = new EventModel();
 
+            model.Id = entity.Id;
             model.AuthorId = entity.AuthorId;
             model.BriefDescription = entity.BriefDescription;
             model.EndTime = entity.EndTime;

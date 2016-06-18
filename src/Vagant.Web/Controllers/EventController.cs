@@ -122,19 +122,23 @@ namespace Vagant.Web.Controllers
             try
             {
                 var events = _eventService.GetEvents(startDate, endDate);
-                var jsonData = events.Select(x => new
+                var jsonData = events.GroupBy(x => x.StartTime.Date).Select(d => new
                 {
-                    eventId = x.Id,
-                    logoUrl = x.LogoId.HasValue ? Url.Action("Download", "FileData", new { id = x.LogoId }) : null,
-                    title = x.Title,
-                    eventDate = x.StartTime.ToShortDateString(),
-                    instruments = new
+                    eventDate = d.Key.ToShortDateString(),
+                    events = d.Select(x => new
                     {
-                        isGuitarUsed = x.IsGuitarUsed,
-                        isViolinUsed = x.IsViolinUsed,
-                        isVocalApplicable = x.IsVocalApplicable
-                    }
+                        eventId = x.Id,
+                        logoUrl = x.LogoId.HasValue ? Url.Action("Download", "FileData", new { id = x.LogoId }) : null,
+                        title = x.Title,
+                        instruments = new
+                        {
+                            isGuitarUsed = x.IsGuitarUsed,
+                            isViolinUsed = x.IsViolinUsed,
+                            isVocalApplicable = x.IsVocalApplicable
+                        }
+                    })
                 });
+
                 return new SuccessJsonResult(jsonData);
             }
             catch (Exception)

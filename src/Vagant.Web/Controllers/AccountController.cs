@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using Vagant.Web.Models;
+using Vagant.Domain.Models;
 
 namespace Vagant.Web.Controllers
 {

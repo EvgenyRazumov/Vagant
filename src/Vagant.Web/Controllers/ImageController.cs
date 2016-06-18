@@ -1,7 +1,6 @@
 ﻿using Agile.Web.Framework.ActionResults;
 using System;
 using System.IO;
-using System.Net;
 using System.Web;
 using System.Web.Mvc;
 using Vagant.Domain.Entities;
@@ -52,7 +51,7 @@ namespace Vagant.Web.Controllers
         }
 
         [HttpGet]
-        public void Download(int id)
+        public ActionResult Download(int id)
         {
             var context = HttpContext;
             try
@@ -61,17 +60,15 @@ namespace Vagant.Web.Controllers
 
                 if (imageFile == null)
                 {
-                    context.Response.StatusCode = (int)HttpStatusCode.NotFound;
+                    return new HttpNotFoundResult();
                 }
 
-                context.Response.ContentType = imageFile.ContentType;
-                context.Response.ClearContent();
-                context.Response.BinaryWrite(imageFile.Data);
+                return File(imageFile.Data, imageFile.ContentType);
             }
             catch (Exception)
             {
                 //log error
-                context.Response.StatusCode = (int)HttpStatusCode.BadRequest;
+                return new HttpBadRequestResult();
             }
         }
 

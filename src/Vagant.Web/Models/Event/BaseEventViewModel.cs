@@ -32,6 +32,8 @@ namespace Vagant.Web.Models.Event
 
         public int? LogoId { get; set; }
 
+        public int? AudioId { get; set; }
+
         [DisplayName("Instruments")]
         public EventInstrumentsViewModel EventInstruments { get; set; }
 

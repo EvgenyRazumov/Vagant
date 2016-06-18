@@ -29,7 +29,8 @@ namespace Vagant.Web
                       "~/Content/Common/reset.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/Timeline")
-                .Include("~/Scripts/jquery.jqtimeline.js"));
+                .Include("~/Scripts/jquery.jqtimeline.js")
+                .Include("~/Scripts/Custom/bindings/timelineBinding.js"));
 
             bundles.Add(new StyleBundle("~/bundles/css/Timeline")
                 .Include("~/Content/jquery.jqtimeline.css")
@@ -58,6 +59,9 @@ namespace Vagant.Web
                 .Include("~/Scripts/libs/soundcloud-api.min.js")
                 .Include("~/Scripts/Custom/sound/soundCloudPlayer.js")
                 .Include("~/Scripts/Custom/createEventPage.js"));
+
+            bundles.Add(new ScriptBundle("~/bundles/DetailsEvent")
+                .Include("~/Scripts/Custom/detailsEventPage.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/Event")
                 .Include("~/Scripts/Custom/Models/Event/event.js"));

@@ -10,79 +10,79 @@
 }
 
 @section BodyScripts {
+    @Scripts.Render("~/bundles/DetailsEvent")
     @Scripts.Render("~/bundles/Event")
 }
 
 <div class="page event-page">
-    <div class="event-body">
+    <div class="event-body event-details-body">
         <div class="row">
-            <div class="col-md-8 form-horizontal">
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Title, new { @class = "col-md-2" })
-                    <div class="col-md-10">
-                        @Html.DisplayFor(m => m.Title, new { @class = "form-control" })
+            <div class="col-md-3"></div>
+            <div class="col-md-6 form-horizontal">
+                <div class="row">
+                    <div class="col-md-5">
+                        @if (Model.LogoId.HasValue)
+                        {
+                            <img class="logo-image" src="@Url.Action("Download", "FileData", new { id = Model.LogoId })" />
+                        }
+                        else
+                        {
+                            <img class="logo-image" src="@Url.Content("~/Content/Images/logo-default.jpg")" />
+                        }
                     </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.BriefDescription, new { @class = "col-md-2" })
-                    <div class="col-md-10">
-                        @Html.DisplayFor(m => m.BriefDescription, new { @class = "form-control" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.FullDescription, new { @class = "col-md-2" })
-                    <div class="col-md-10">
-                        @Html.DisplayFor(m => m.FullDescription, new { @class = "form-control" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.StartTime, new { @class = "col-md-2" })
-                    <div class="col-md-10">
-                        @Html.DisplayFor(m => m.StartTime, new { @class = "form-control datetimepicker" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.EndTime, new { @class = "col-md-2" })
-                    <div class="col-md-10">
-                        @Html.DisplayFor(m => m.EndTime, new { @class = "form-control datetimepicker" })
-                    </div>
-                </div>
-                <div class="form-group">
-                    @Html.LabelFor(m => m.EventInstruments, new { @class = "col-md-2" })
-                    <div class="col-md-10">
-                        @Html.CheckBoxFor(m => m.EventInstruments.IsGuitarUsed, new { @disabled = "disabled" }) Guitar
-                        <br />
-                        @Html.CheckBoxFor(m => m.EventInstruments.IsViolinUsed, new { @disabled = "disabled" }) Violin
-                        <br />
-                        @Html.CheckBoxFor(m => m.EventInstruments.IsVocalApplicable, new { @disabled = "disabled" }) Vocal
-                    </div>
-                </div>
-                @if (Model.LogoId.HasValue)
-                {
-                    <div class="form-group">
-                        <label class="col-md-2">Logo</label>
-                        <div class="col-md-10">
-                            <img src="@Url.Action("Download", "FileData", new { id = Model.LogoId })" />
+                    <div class="col-md-7">
+                        <div class="title">
+                            @Html.DisplayFor(m => m.Title)
                         </div>
-                    </div>
-                }
-                @*@Html.HiddenFor(m => m.Location.Latitude, new { @class = "form-control", @id = "latitude" })
-                @Html.HiddenFor(m => m.Location.Longitude, new { @class = "form-control", id = "longitude" })
-                <div class="form-group">
-                    @Html.LabelFor(m => m.Location, new { @class = "col-md-2 control-label" })
-                    <div class="col-md-10">
-                        <script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script>
-                        <div style='overflow:hidden;height:440px;'>
-                            <div id='gmap_canvas' style='height:440px;'></div>
-                            <style>
-                                    #gmap_canvas img {
-                                        max-width: none !important;
-                                        background: none !important;
-                                    }
-                                </style>
+                        <div class="space"></div>
+                        <div class="brief-description">
+                            @Html.DisplayFor(m => m.BriefDescription)
                         </div>
+                        <div class="space"></div>
+                        <div class="author">
+                            Author: @Html.DisplayFor(m => m.AuthorName)
+                        </div>
+                        <div class="space"></div>
+                        <div class="start-time">
+                            Event Date: @Html.DisplayFor(m => m.StartTime)
+                        </div>
+                        <div class="space"></div>
+                        <div class="instruments">
+                            @Html.CheckBoxFor(m => m.EventInstruments.IsGuitarUsed, new { @disabled = "disabled" }) Guitar
+                            @Html.CheckBoxFor(m => m.EventInstruments.IsViolinUsed, new { @disabled = "disabled" }) Violin
+                            @Html.CheckBoxFor(m => m.EventInstruments.IsVocalApplicable, new { @disabled = "disabled" }) Vocal
+                        </div>
+                        @if (Model.AudioId.HasValue)
+                        {
+                            <div class="space"></div>
+                            <div class="row">
+                                <audio controls>
+                                    <source src="@Url.Action("Download", "FileData", new { id = Model.AudioId })">
+                                    Your browser does not support the audio element.
+                                </audio>
+                            </div>
+                        }
                     </div>
-                </div>*@
+                </div>
+                <hr/>
+                <div class="row full-description">
+                    @Html.DisplayFor(m => m.FullDescription)
+                </div>
+                <div class="space"></div>
+                <div class="row">
+                    @Html.HiddenFor(m => m.Location.Latitude, new { @id = "latitude" })
+                    @Html.HiddenFor(m => m.Location.Longitude, new { @id = "longitude" })
+                    <script src='https://maps.googleapis.com/maps/api/js?v=3.exp'></script>
+                    <div style='overflow:hidden;height:440px;'>
+                        <div id='gmap_canvas' style='height:440px;'></div>
+                        <style>
+                            #gmap_canvas img {
+                                max-width: none !important;
+                                background: none !important;
+                            }
+                        </style>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

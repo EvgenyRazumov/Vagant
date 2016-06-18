@@ -67,6 +67,10 @@
     <Compile Include="Migrations\201606181205476_Application User.Designer.cs">
       <DependentUpon>201606181205476_Application User.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606181302087_FullSchema.cs" />
+    <Compile Include="Migrations\201606181302087_FullSchema.Designer.cs">
+      <DependentUpon>201606181302087_FullSchema.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\GenericRepository.cs" />
@@ -88,6 +92,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606181205476_Application User.resx">
       <DependentUpon>201606181205476_Application User.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606181302087_FullSchema.resx">
+      <DependentUpon>201606181302087_FullSchema.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

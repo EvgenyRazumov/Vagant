@@ -67,6 +67,12 @@
                                 <input type="file" name="logo" />
                             </div>
                         </div>
+                        <div class="form-group">
+                            <label class="col-md-2 control-label">Audio</label>
+                            <div class="col-md-10">
+                                <input type="file" name="audio" />
+                            </div>
+                        </div>
                         @Html.HiddenFor(m => m.Location.Latitude, new { @class = "form-control", @id = "latitude" })
                         @Html.HiddenFor(m => m.Location.Longitude, new { @class = "form-control", id = "longitude" })
                         <div class="form-group">

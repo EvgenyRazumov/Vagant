@@ -22,6 +22,8 @@ namespace Vagant.Domain.Entities
 
         public int? LogoId { get; set; }
 
+        public int? AudioId { get; set; }
+
         public string AuthorId { get; set; }
 
         public int? EventInstrumentId { get; set; }
@@ -29,6 +31,8 @@ namespace Vagant.Domain.Entities
         public virtual Location Location { get; set; }
 
         public virtual FileData Logo { get; set; }
+
+        public virtual FileData Audio { get; set; }
 
         public virtual ApplicationUser Author { get; set; }
 

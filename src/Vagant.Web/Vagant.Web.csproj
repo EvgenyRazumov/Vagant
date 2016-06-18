@@ -287,6 +287,10 @@
     <Content Include="Scripts\jquery-1.10.2.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Vagant.Business\Vagant.Business.csproj">
+      <Project>{3f5ad54d-dad7-449f-8c41-2e7898d2ae1e}</Project>
+      <Name>Vagant.Business</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Vagant.Data\Vagant.Data.csproj">
       <Project>{99cb5d77-e9c2-410f-b61b-1b8a54bb8258}</Project>
       <Name>Vagant.Data</Name>

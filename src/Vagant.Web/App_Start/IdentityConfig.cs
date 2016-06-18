@@ -9,7 +9,7 @@ using System.Data.Entity;
 using System.Security.Claims;
 using System.Threading.Tasks;
 using Vagant.Data;
-using Vagant.Domain.Models;
+using Vagant.Domain.Entities;
 using Vagant.Web.App_Start;
 
 namespace Vagant.Web

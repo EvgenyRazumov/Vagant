@@ -1,6 +1,10 @@
 using Microsoft.Practices.Unity;
 using System;
+using Vagant.Business;
 using Vagant.Data;
+using Vagant.Data.UnitOfWork;
+using Vagant.Domain.Services;
+using Vagant.Domain.UnitOfWork;
 using Vagant.Web.Controllers;
 
 namespace Vagant.Web.App_Start
@@ -31,12 +35,21 @@ namespace Vagant.Web.App_Start
         /// <param name="container">The unity container to configure.</param>
         /// <remarks>There is no need to register concrete types such as controllers or API controllers (unless you want to 
         /// change the defaults), as Unity allows resolving a concrete type even if it was not previously registered.</remarks>
-        public static void RegisterTypes(IUnityContainer container)
+        private static void RegisterTypes(IUnityContainer container)
         {
             container.RegisterType<AccountController>(new InjectionConstructor());
             container.RegisterType<ManageController>(new InjectionConstructor());
 
             container.RegisterType<IApplicationDbContext, ApplicationDbContext>(new PerRequestLifetimeManager());
+            container.RegisterType<IAppUnitOfWork, AppUnitOfWork>(new PerRequestLifetimeManager());
+
+            RegisterServices(container);
+        }
+
+        private static void RegisterServices(IUnityContainer container)
+        {
+            container.RegisterType<IUserService, UserService>(new PerRequestLifetimeManager());
+            container.RegisterType<IImageFileService, ImageFileService>(new PerRequestLifetimeManager());
         }
     }
 }

@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vagant.Domain", "Vagant.Dom
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vagant.Data", "Vagant.Data\Vagant.Data.csproj", "{99CB5D77-E9C2-410F-B61B-1B8A54BB8258}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Vagant.Business", "Vagant.Business\Vagant.Business.csproj", "{3F5AD54D-DAD7-449F-8C41-2E7898D2AE1E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{99CB5D77-E9C2-410F-B61B-1B8A54BB8258}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99CB5D77-E9C2-410F-B61B-1B8A54BB8258}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99CB5D77-E9C2-410F-B61B-1B8A54BB8258}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F5AD54D-DAD7-449F-8C41-2E7898D2AE1E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F5AD54D-DAD7-449F-8C41-2E7898D2AE1E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F5AD54D-DAD7-449F-8C41-2E7898D2AE1E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F5AD54D-DAD7-449F-8C41-2E7898D2AE1E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

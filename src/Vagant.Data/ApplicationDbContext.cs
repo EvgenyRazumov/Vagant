@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNet.Identity.EntityFramework;
-using Vagant.Domain.Models;
+using System.Data.Entity;
+using Vagant.Domain.Entities;
 
 namespace Vagant.Data
 {
@@ -8,5 +9,9 @@ namespace Vagant.Data
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         { }
+
+        public DbSet<ImageFile> ImageFiles { get; set; }
+
+        public DbSet<UserContactInfo> UserContactInfos { get; set; }
     }
 }

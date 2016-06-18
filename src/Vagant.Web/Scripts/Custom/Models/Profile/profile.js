@@ -10,5 +10,5 @@ vagantApp.profile.ProfilePage = function () {
 };
 
 $(function () {
-    ko.applyBindings(new ProfilePage());
+    ko.applyBindings(new vagantApp.profile.ProfilePage());
 });

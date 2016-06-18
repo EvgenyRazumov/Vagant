@@ -1,6 +1,7 @@
 ﻿body {
     padding-top: 50px;
     padding-bottom: 20px;
+    background-image: url('/Content/bg.png');
 }
 
 /* Set padding to keep content from hitting the edges */
@@ -42,6 +43,38 @@ textarea {
     padding-top: 15px;
 }
 
+.space {
+    height: 10px;
+}
+
 .create-event-button{
     margin-top: 7px;
+}
+
+.navbar-header .logo-image {
+    max-height: 50px;
+    padding: 3px;
+}
+
+.navbar-header .site-title {
+    padding-right:10px;
+    font-weight: bold;
+}
+
+.navbar-header .site-home-link:hover,
+.navbar-header .site-home-link:active {
+    text-decoration: none;
+}
+
+.event-details-body .logo-image {
+    width: 100%;
+    padding: 10px;
+}
+
+.event-details-body .title {
+    font-size: 26px;
+}
+
+.event-details-body .full-description{
+    text-align:center;
 }

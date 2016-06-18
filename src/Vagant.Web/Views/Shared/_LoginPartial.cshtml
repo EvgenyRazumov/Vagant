@@ -6,7 +6,11 @@
     {
     @Html.AntiForgeryToken()
 
+    @Html.ActionLink("Create Event", "Create", "Event", routeValues: null, htmlAttributes: new { @class = "btn btn-default create-event-button" })
+        
     <ul class="nav navbar-nav navbar-right">
+        <li>
+        </li>
         <li>
             @Html.ActionLink("Hello " + User.Identity.GetUserName() + "!", "Index", "Manage", routeValues: null, htmlAttributes: new { title = "Manage" })
         </li>

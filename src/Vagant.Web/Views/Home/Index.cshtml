@@ -7,6 +7,12 @@
 }
 
 @section BodyScripts {
+    <script type="text/javascript">
+        var vagantAppParams = {};
+
+        vagantAppParams.getEventsDataUrl = '@Url.Action("GetEvents", "Event")';
+    </script>
+
     @Scripts.Render("~/bundles/Home")
 }
 

@@ -65,7 +65,12 @@ namespace Vagant.Web
         public static void RegisterHomeBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/Home")
-                .Include("~/Scripts/Custom/Models/Home/home.js"));
+                .Include("~/Scripts/Custom/models/event/instrumentFilter.js")
+                .Include("~/Scripts/Custom/models/event/eventInstrumentModel.js")
+                .Include("~/Scripts/Custom/models/event/eventListItem.js")
+                .Include("~/Scripts/Custom/models/event/eventList.js")
+                .Include("~/Scripts/Custom/models/event/eventGridManager.js")
+                .Include("~/Scripts/Custom/pages/home.js"));
 
             bundles.Add(new StyleBundle("~/bundles/css/Home")
                 .Include("~/Content/Home/home.css"));

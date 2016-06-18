@@ -15,9 +15,11 @@ vagantApp.event.EventListItem = function () {
     //#region Public functions
     self.loadData = function (dataObject) {
         if (dataObject) {
-            self.id(dataObject.id);
+            self.id(dataObject.eventId);
             self.title(dataObject.title);
             self.logoUrl(dataObject.logoUrl);
+
+            self.instruments.loadData(dataObject.instruments);
         }
     };
     //#endregion

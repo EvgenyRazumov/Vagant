@@ -4,7 +4,7 @@ using Vagant.Domain.Entities;
 using Vagant.Domain.Services;
 using Vagant.Domain.UnitOfWork;
 
-namespace Vagant.Business
+namespace Vagant.Business.Services
 {
     public class ImageFileService : IImageFileService
     {

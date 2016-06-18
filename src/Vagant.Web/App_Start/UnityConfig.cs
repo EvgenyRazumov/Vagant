@@ -1,6 +1,6 @@
 using Microsoft.Practices.Unity;
 using System;
-using Vagant.Business;
+using Vagant.Business.Services;
 using Vagant.Data;
 using Vagant.Data.UnitOfWork;
 using Vagant.Domain.Services;

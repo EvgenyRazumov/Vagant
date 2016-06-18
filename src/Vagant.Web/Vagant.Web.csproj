@@ -237,12 +237,13 @@
     <Content Include="Content\Event\createEvent.css" />
     <Content Include="Content\Event\event.css" />
     <Content Include="Content\Home\home.css" />
-    <Content Include="Content\Images\cd-arrow.svg" />
+    <Content Include="Content\Images\main_img.png" />
+    <Content Include="Content\jquery.jqtimeline.css" />
+    <Content Include="Content\jquery.timeline.blue.css" />
     <Content Include="Content\Profile\achievements.css" />
     <Content Include="Content\Profile\contentInformation.css" />
     <Content Include="Content\Profile\profile.css" />
     <Content Include="Content\Profile\profileHistory.css" />
-    <Content Include="Content\timeline.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -253,6 +254,7 @@
     <Content Include="Scripts\Custom\Models\Event\createEvent.js" />
     <Content Include="Scripts\Custom\Models\Event\event.js" />
     <Content Include="Scripts\Custom\Models\Home\home.js" />
+    <Content Include="Scripts\Custom\Models\Home\timelineModel.js" />
     <Content Include="Scripts\Custom\Models\Map\mapManager.js" />
     <Content Include="Scripts\Custom\Models\Profile\achievements.js" />
     <Content Include="Scripts\Custom\Models\Profile\contactInformation.js" />
@@ -261,6 +263,7 @@
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
     <None Include="Scripts\jquery.validate-vsdoc.js" />
+    <Content Include="Scripts\jquery.jqtimeline.js" />
     <Content Include="Scripts\jquery.validate.js" />
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
@@ -269,7 +272,6 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
-    <Content Include="Scripts\timeline.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -311,6 +313,7 @@
     <Content Include="Views\Event\CreateEvent.cshtml" />
     <Content Include="Views\Event\Details.cshtml" />
     <Content Include="Views\Event\EditEvent.cshtml" />
+    <Content Include="Views\Shared\Home\_Timeline.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

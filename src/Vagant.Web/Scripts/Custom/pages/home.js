@@ -7,6 +7,7 @@ vagantApp.pages.Home = function () {
     //#region Properties
     self.timeline = new vagantApp.home.Timeline();
     self.gridManager = new vagantApp.event.EventGridManager();
+    self.player = new vagantApp.sound.Player();
     //#endregion
 
     //#region Private functions
@@ -14,7 +15,7 @@ vagantApp.pages.Home = function () {
 
     //#region Public functions
     self.init = function (options) {
-        self.gridManager.init(options);
+        self.gridManager.init(options, self.player);
     };
     //#endregion
 };

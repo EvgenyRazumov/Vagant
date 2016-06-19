@@ -8,6 +8,8 @@ vagantApp.event.EventListItem = function () {
     self.title = ko.observable('');
     self.id = ko.observable('');
     self.logoUrl = ko.observable('');
+    self.audioUrl = ko.observable('');
+    self.isBeingPlayed = ko.observable(false);
 
     self.instruments = new vagantApp.event.EventInstrumentModel();
     //#endregion
@@ -17,6 +19,11 @@ vagantApp.event.EventListItem = function () {
         var prefixUrl = vagantAppParams ? vagantAppParams.gotoEventsDetailsUrl : '';
         return prefixUrl + '?id=' + self.id();
     });
+
+    self.isPlayerControlPaneVisible = ko.computed(function () {
+        var audioUrl = self.audioUrl();
+        return audioUrl;
+    });
     //#endregion
 
     //#region Public functions
@@ -25,21 +32,18 @@ vagantApp.event.EventListItem = function () {
             self.id(dataObject.eventId);
             self.title(dataObject.title);
             self.logoUrl(dataObject.logoUrl);
+            self.audioUrl(dataObject.audioUrl);
 
             self.instruments.loadData(dataObject.instruments);
         }
     };
 
-    self.play = function () {
-
-    };
-
-    self.pause = function () {
-
-    };
-
     self.open = function () {
         location = self.eventDetailsPageUrl();
+    };
+
+    self.updatePlayerStatus = function (isPlayed) {
+        self.isBeingPlayed(isPlayed);
     };
     //#endregion
 };

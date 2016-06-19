@@ -76,6 +76,7 @@ namespace Vagant.Web
         public static void RegisterHomeBundles(BundleCollection bundles)
         {
             bundles.Add(new ScriptBundle("~/bundles/Home")
+                .Include("~/Scripts/Custom/sound/player.js")
                 .Include("~/Scripts/Custom/Models/Home/timelineModel.js")
                 .Include("~/Scripts/Custom/models/event/instrumentFilter.js")
                 .Include("~/Scripts/Custom/models/event/eventInstrumentModel.js")
@@ -87,6 +88,7 @@ namespace Vagant.Web
             bundles.Add(new StyleBundle("~/bundles/css/Home")
                 .Include("~/Content/Event/event-list.css")
                 .Include("~/Content/Event/event-list-item.css")
+                .Include("~/Content/Home/event-filters.css")
                 .Include("~/Content/Home/home.css"));
         }
     }

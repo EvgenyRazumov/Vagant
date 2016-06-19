@@ -142,5 +142,11 @@ vagantApp.event.EventGridManager = function () {
         self.eventList.setPlayerReferrence(player);
         self.timeline.setSelectDateHandler(dateSelectedHandler);
     };
+
+    self.resetFilters = function () {
+        dateFilterFunction = null;
+        self.instrumentFilter.resetFilter();
+        updateVisibleEventsList();
+    };
     //#endregion
 };

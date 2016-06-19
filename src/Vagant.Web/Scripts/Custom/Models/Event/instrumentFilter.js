@@ -86,5 +86,12 @@ vagantApp.event.InstrumentFilter = function (changeHandler) {
     self.clickSaxophone = function () {
         self.isSaxophoneUsed(!self.isSaxophoneUsed());
     };
+
+    self.resetFilter = function () {
+        self.isGuitarUsed(false);
+        self.isViolinUsed(false);
+        self.isSaxophoneUsed(false);
+        self.isVocalUsed(false);
+    };
     //#endregion
 };

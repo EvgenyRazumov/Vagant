@@ -32,6 +32,12 @@
         <div class="col-xs-12 col-sm-12 col-md-3">
             <div data-bind="template: { name: 'instrumentFilterTemplate', data: gridManager.instrumentFilter }">
             </div>
+            <div>
+                <div data-bind="click: gridManager.resetFilters" class="reset-filters-button">
+                    <span class="glyphicon glyphicon-repeat"></span>
+                    <span>Start Over</span>
+                </div>
+            </div>
             <div class="notifications">
 
             </div>

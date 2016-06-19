@@ -12,10 +12,12 @@ vagantApp.event.EventGridManager = function () {
     var loadedEvents = [];
     var loadedDates = [];
     var getEventsDataUrl = null;
+    var dateFilterFunction = null;
     //#endregion
 
     //#region Properties
     self.eventList = new vagantApp.event.EventList();
+    self.timeline = new vagantApp.home.Timeline();
     self.instrumentFilter = new vagantApp.event.InstrumentFilter();
     //#endregion
 
@@ -62,15 +64,20 @@ vagantApp.event.EventGridManager = function () {
         if (eventDatesList) {
             ko.utils.arrayForEach(eventDatesList, function (eventDateObject) {
                 if (eventDateObject) {
-                    loadedDates.push(eventDateObject.eventDate);
+                    loadedDates.push(new Date(eventDateObject.eventDate));
                     if (eventDateObject.events) {
                         ko.utils.arrayForEach(eventDateObject.events, function (eventObject) {
+                            eventObject.date = eventDateObject.eventDate;
                             loadedEvents.push(eventObject);
                         })
                     }
                 }
             });
         }
+    };
+
+    var updateDates = function () {
+        self.timeline.loadDates(loadedDates);
     };
 
     var updateVisibleEventsList = function(dateFilter, instrumentsFilter){
@@ -97,11 +104,24 @@ vagantApp.event.EventGridManager = function () {
     };
 
     var handleDateOrInstrumentFilterChange = function () {
-        var dateFilterFunction = null;
         var instrumentFilterFunction = self.instrumentFilter.getFilter();
 
         updateVisibleEventsList(dateFilterFunction, instrumentFilterFunction);
     }
+
+    var dateSelectedHandler = function (date) {
+        var dateString = date.toLocaleDateString();
+        var filterFunction = function (eventObject) {
+            if (eventObject) {
+                return eventObject.date === dateString;
+            }
+            return false;
+        };
+        dateFilterFunction = filterFunction;
+        var instrumentFilterFunction = self.instrumentFilter.getFilter();
+
+        updateVisibleEventsList(filterFunction, instrumentFilterFunction);
+    };
     //#endregion
 
     //#region Public functions
@@ -112,6 +132,7 @@ vagantApp.event.EventGridManager = function () {
             getEventsData()
                 .done(function (events) {
                     loadEvents(events);
+                    updateDates();
                     updateVisibleEventsList();
                 })
                 .always(self.eventList.setReady);
@@ -119,10 +140,7 @@ vagantApp.event.EventGridManager = function () {
 
         self.instrumentFilter.initChangeHandler(handleDateOrInstrumentFilterChange);
         self.eventList.setPlayerReferrence(player);
-    };
-
-    self.loadEvents = function (events) {
-        
+        self.timeline.setSelectDateHandler(dateSelectedHandler);
     };
     //#endregion
 };

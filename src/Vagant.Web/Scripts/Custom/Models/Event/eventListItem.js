@@ -10,6 +10,7 @@ vagantApp.event.EventListItem = function () {
     self.logoUrl = ko.observable('');
     self.audioUrl = ko.observable('');
     self.isBeingPlayed = ko.observable(false);
+    self.date = null;
 
     self.instruments = new vagantApp.event.EventInstrumentModel();
     //#endregion
@@ -33,6 +34,7 @@ vagantApp.event.EventListItem = function () {
             self.title(dataObject.title);
             self.logoUrl(dataObject.logoUrl);
             self.audioUrl(dataObject.audioUrl);
+            self.date = dataObject.date;
 
             self.instruments.loadData(dataObject.instruments);
         }

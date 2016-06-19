@@ -87,3 +87,9 @@ textarea {
     color: black;
     background-color: #FFF;
 }
+
+footer {
+    border-top: 2px solid #ccc;
+    text-align: right;
+    font-weight: bold;
+}

@@ -14,7 +14,7 @@
                 size: 'xs',
                 showClear: false,
                 showCaption: false,
-                disable: !options.isEditable()
+                disabled: !options.isEditable()
             });
 
             $(element).on('rating.change', function () {

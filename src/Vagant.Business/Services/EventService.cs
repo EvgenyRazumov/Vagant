@@ -49,7 +49,7 @@ namespace Vagant.Business.Services
             _uow.Commit();
         }
 
-        public double UpdateRating(string userId, int eventId, int ratingValue)
+        public double UpdateRating(string userId, int eventId, double ratingValue)
         {
             var eventRepository = _uow.GetRepository<Event>();
             var eventRatingRepository = _uow.GetRepository<EventRating>();

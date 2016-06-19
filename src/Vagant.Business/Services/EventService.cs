@@ -136,6 +136,7 @@ namespace Vagant.Business.Services
                 entity.EventInstrument.IsGuitarUsed = model.IsGuitarUsed;
                 entity.EventInstrument.IsViolinUsed = model.IsViolinUsed;
                 entity.EventInstrument.IsVocalApplicable = model.IsVocalApplicable;
+                entity.EventInstrument.IsSaxophoneUsed = model.IsSaxophoneUsed;
             }
         }
 
@@ -153,6 +154,7 @@ namespace Vagant.Business.Services
             model.StartTime = entity.StartTime;
             model.Title = entity.Title;
             model.AuthorName = string.Format("{0} {1}", entity.Author.FirstName, entity.Author.LastName);
+            model.Rate = entity.Rate;
 
             if (entity.Location != null)
             {
@@ -165,6 +167,7 @@ namespace Vagant.Business.Services
                 model.IsGuitarUsed = entity.EventInstrument.IsGuitarUsed;
                 model.IsViolinUsed = entity.EventInstrument.IsViolinUsed;
                 model.IsVocalApplicable = entity.EventInstrument.IsVocalApplicable;
+                model.IsSaxophoneUsed = entity.EventInstrument.IsSaxophoneUsed;
             }
 
             return model;

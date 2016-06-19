@@ -7,6 +7,7 @@
             <tr>
                 <th>Title</th>
                 <th>Event Date</th>
+                <th>Rating</th>
                 <th>Actions</th>
             </tr>
         </thead>
@@ -16,6 +17,14 @@
                 <tr>
                     <td>@historyItem.EventName</td>
                     <td>@historyItem.EventDate</td>
+                    @if (@historyItem.EventRate == 0)
+                    {
+                        <td>-</td>
+                    }
+                    else
+                    {
+                        <td>@historyItem.EventRate.ToString("F")</td>
+                    }
                     <td><a class="btn btn-default" href="@Url.Action("Clone", "Event", new { id = historyItem.EventId })">Clone</a></td>
                 </tr>
             }

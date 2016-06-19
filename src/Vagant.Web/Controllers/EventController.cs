@@ -51,14 +51,36 @@ namespace Vagant.Web.Controllers
             }
         }
 
+        [Authorize]
+        public ActionResult Clone(int id)
+        {
+            try
+            {
+                var @event = _eventService.GetEvent(id);
+                var viewModel = GetEditEventViewModel(@event);
+
+                return View("CreateEvent", viewModel);
+            }
+            catch (Exception)
+            {
+                //todo: log error
+                return RedirectToAction("Index", "Home");
+            }
+        }
+
         [HttpPost]
         [Authorize]
         public ActionResult Create(EditEventViewModel viewModel)
         {
             try
             {
-                int? logoId = null;
-                int? audioId = null;
+                if (!ModelState.IsValid)
+                {
+                    return View("CreateEvent", viewModel);
+                }
+
+                int? logoId = viewModel.LogoId;
+                int? audioId = viewModel.AudioId;
 
                 var logoFile = GetImageFileFromStream();
                 if (logoFile != null && logoFile.ContentLength > 0)
@@ -348,6 +370,31 @@ namespace Vagant.Web.Controllers
                 LogoId = model.LogoId,
                 AudioId = model.AudioId,
                 IsRatingEditable = _eventService.IsRatingEditable(UserId, model.Id)
+            };
+        }
+
+        private EditEventViewModel GetEditEventViewModel(EventModel model)
+        {
+            return new EditEventViewModel
+            {
+                BriefDescription = model.BriefDescription,
+                StartTime = model.StartTime,
+                EndTime = model.EndTime,
+                FullDescription = model.FullDescription,
+                Location = new LocationViewModel
+                {
+                    Latitude = model.Latitude,
+                    Longitude = model.Longitude,
+                },
+                EventInstruments = new EventInstrumentsViewModel()
+                {
+                    IsGuitarUsed = model.IsGuitarUsed,
+                    IsViolinUsed = model.IsViolinUsed,
+                    IsVocalApplicable = model.IsVocalApplicable
+                },
+                Title = model.Title,
+                AudioId = model.AudioId,
+                LogoId = model.LogoId
             };
         }
 

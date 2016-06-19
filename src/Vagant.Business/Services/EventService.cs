@@ -153,6 +153,7 @@ namespace Vagant.Business.Services
             model.StartTime = entity.StartTime;
             model.Title = entity.Title;
             model.AuthorName = string.Format("{0} {1}", entity.Author.FirstName, entity.Author.LastName);
+            model.Rate = entity.Rate;
 
             if (entity.Location != null)
             {

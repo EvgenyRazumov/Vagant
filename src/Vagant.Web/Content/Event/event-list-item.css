@@ -13,11 +13,16 @@
     max-height: 100%;
 }
 
-.event-list-item .event-list-item__plaing-indicator {
+.event-list-item .event-list-item__playing-indicator {
     position: absolute;
     opacity: 0.9;
     color: white;
     padding: 10px;
+    background: grey;
+}
+
+.event-list-item .event-list-item__playing-indicator--margined-right {
+    margin-right: 10px;
 }
 
 .event-list-item .event-list-item__controls {
@@ -41,4 +46,12 @@
 
 .event-list-item .event-list-item__controls--open {
     float: right;
+}
+
+.event-list-item .event-list-item__description {
+    position: relative;
+    bottom: 30px;
+    font-size: 12px;
+    word-break: break-word;
+    padding: 5px;
 }

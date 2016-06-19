@@ -30,6 +30,17 @@
                     <div class="col-md-8">
                         @Html.DisplayFor(x => x.UserName)
                         <div class="space"></div>
+						<div class="social-networks-list">
+                            <div class="social-network-link">
+                                <img class="image img-responsive" src="@Url.Content("~/Content/Images/facebook.png")"/>
+                            </div>
+                            <div class="social-network-link">
+                                <img class="image img-responsive" src="@Url.Content("~/Content/Images/vk-group.png")" />
+                            </div>
+                            <div class="social-network-link">
+                                <img class="image img-responsive" src="@Url.Content("~/Content/Images/instagram.png")" />
+                            </div>
+                        </div>
                         @{ Html.RenderPartial("Profile/_ProfileHistory", Model.HistoryItems); }
                     </div>
                 </div>

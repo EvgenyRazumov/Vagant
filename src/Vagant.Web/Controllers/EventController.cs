@@ -193,7 +193,7 @@ namespace Vagant.Web.Controllers
 
         [HttpPost]
         [Authorize]
-        public ActionResult UpdateRating(int eventId, int rating)
+        public ActionResult UpdateRating(int eventId, double rating)
         {
             try
             {

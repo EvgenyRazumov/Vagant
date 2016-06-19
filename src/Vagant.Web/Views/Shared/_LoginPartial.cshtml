@@ -6,6 +6,8 @@
     {
     @Html.AntiForgeryToken()
 
+    <img src="@Url.Content("~/Content/Images/bell-prenotify.png")" class="bell-notify" />
+
     @Html.ActionLink("Create Event", "Create", "Event", routeValues: null, htmlAttributes: new { @class = "btn btn-default create-event-button" })
         
     <ul class="nav navbar-nav navbar-right">

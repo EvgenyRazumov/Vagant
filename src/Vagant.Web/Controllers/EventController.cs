@@ -156,7 +156,8 @@ namespace Vagant.Web.Controllers
                         {
                             isGuitarUsed = x.IsGuitarUsed,
                             isViolinUsed = x.IsViolinUsed,
-                            isVocalApplicable = x.IsVocalApplicable
+                            isVocalApplicable = x.IsVocalApplicable,
+                            isSaxophoneUsed = x.IsSaxophoneUsed
                         }
                     })
                 });
@@ -348,6 +349,7 @@ namespace Vagant.Web.Controllers
                 IsGuitarUsed = viewModel.EventInstruments.IsGuitarUsed,
                 IsViolinUsed = viewModel.EventInstruments.IsViolinUsed,
                 IsVocalApplicable = viewModel.EventInstruments.IsVocalApplicable,
+                IsSaxophoneUsed = viewModel.EventInstruments.IsSaxophoneUsed
             };
         }
 
@@ -369,7 +371,8 @@ namespace Vagant.Web.Controllers
                 {
                     IsGuitarUsed = model.IsGuitarUsed,
                     IsViolinUsed = model.IsViolinUsed,
-                    IsVocalApplicable = model.IsVocalApplicable
+                    IsVocalApplicable = model.IsVocalApplicable,
+                    IsSaxophoneUsed = model.IsSaxophoneUsed
                 },
                 Title = model.Title,
                 LogoId = model.LogoId,
@@ -397,7 +400,8 @@ namespace Vagant.Web.Controllers
                 {
                     IsGuitarUsed = model.IsGuitarUsed,
                     IsViolinUsed = model.IsViolinUsed,
-                    IsVocalApplicable = model.IsVocalApplicable
+                    IsVocalApplicable = model.IsVocalApplicable,
+                    IsSaxophoneUsed = model.IsSaxophoneUsed
                 },
                 Title = model.Title,
                 AudioId = model.AudioId,

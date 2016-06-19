@@ -136,6 +136,7 @@ namespace Vagant.Business.Services
                 entity.EventInstrument.IsGuitarUsed = model.IsGuitarUsed;
                 entity.EventInstrument.IsViolinUsed = model.IsViolinUsed;
                 entity.EventInstrument.IsVocalApplicable = model.IsVocalApplicable;
+                entity.EventInstrument.IsSaxophoneUsed = model.IsSaxophoneUsed;
             }
         }
 
@@ -166,6 +167,7 @@ namespace Vagant.Business.Services
                 model.IsGuitarUsed = entity.EventInstrument.IsGuitarUsed;
                 model.IsViolinUsed = entity.EventInstrument.IsViolinUsed;
                 model.IsVocalApplicable = entity.EventInstrument.IsVocalApplicable;
+                model.IsSaxophoneUsed = entity.EventInstrument.IsSaxophoneUsed;
             }
 
             return model;

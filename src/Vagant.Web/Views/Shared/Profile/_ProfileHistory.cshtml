@@ -15,7 +15,9 @@
             @foreach (var historyItem in Model)
             {
                 <tr>
-                    <td>@historyItem.EventName</td>
+                    <td>
+                        @historyItem.EventName
+                    </td>
                     <td>@historyItem.EventDate</td>
                     @if (@historyItem.EventRate == 0)
                     {
@@ -25,7 +27,17 @@
                     {
                         <td>@historyItem.EventRate.ToString("F")</td>
                     }
-                    <td><a class="btn btn-default" href="@Url.Action("Clone", "Event", new { id = historyItem.EventId })">Clone</a></td>
+                    <td>
+                        <a class="btn btn-default" href="@Url.Action("Details", "Event", new { id = historyItem.EventId })">Details</a>
+                        @if (historyItem.CanClone)
+                        {
+                            <a class="btn btn-default" href="@Url.Action("Clone", "Event", new { id = historyItem.EventId })">Clone</a>
+                        }
+                        else
+                        {
+                            <a class="btn btn-default" href="#">Subscribe</a>
+                        }
+                    </td>
                 </tr>
             }
         </tbody>

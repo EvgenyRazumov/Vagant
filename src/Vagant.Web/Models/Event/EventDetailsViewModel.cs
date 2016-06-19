@@ -13,6 +13,8 @@ namespace Vagant.Web.Models.Event
 
         public bool IsRatingEditable { get; set; }
 
+        public double Rate { get; set; }
+
         public ReadOnlyContactInfoViewModel ContactInfo { get; set; }
 
         public IList<CommentViewModel> Comments { get; set; }

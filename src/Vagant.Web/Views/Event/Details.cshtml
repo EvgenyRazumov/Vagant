@@ -6,13 +6,25 @@
 }
 
 @section Styles {
+    @Styles.Render("~/bundles/css/StarRating")
     @Styles.Render("~/bundles/css/Event")
 }
 
 @section BodyScripts {
+    @Scripts.Render("~/bundles/StarRating")
     @Scripts.Render("~/bundles/DetailsEvent")
     @Scripts.Render("~/bundles/Event")
 }
+
+<script type="text/javascript">
+    var vagantApp = window.vagantApp || {};
+    vagantApp.event = vagantApp.event || {};
+
+    vagantApp.event.rate = '@Model.Rate';
+    vagantApp.event.isRatingEditable = '@Model.IsRatingEditable.ToString().ToLower()';
+    vagantApp.event.updateRatingUrl = '@Url.Action("UpdateRating", "Event")';
+    vagantApp.event.eventId = '@Model.EventId'
+</script>
 
 <div class="page event-page">
     <div class="event-body event-details-body">
@@ -84,7 +96,13 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-3">
+                <div class="rating-container" data-bind="template: { name: 'starRatingTemplate', data: rating }">
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
+@Html.Partial("Event/_StarRating")
 

@@ -19,25 +19,24 @@
 }
 
 <div class="page profile-page">
-    <div class="profile-header">
-        <div class="profile-image-container">
-            <img class="profile-image" src="" alt="no image" />
-        </div>
-        <div class="profile-main-information">
-            <!-- ko template: { name: 'contactInformation', data: contactInformation } -->
-            <!-- /ko -->
-            <!-- ko template: { name: 'achievements', data: achievements } -->
-            <!-- /ko -->
-        </div>
-    </div>
     <div class="profile-body">
-        <!-- ko template: { name: 'profileHistory', data: profileHistory } -->
-        <!-- /ko -->
+        <div class="row">
+            <div class="col-md-2"></div>
+            <div class="col-md-8">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img class="profile-image" src="@Url.Content("~/Content/Images/user-icon.png")" alt="no image" />
+                    </div>
+                    <div class="col-md-8">
+                        @{ Html.RenderPartial("Profile/_ProfileHistory", Model.HistoryItems); }
+
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
-@Html.Partial("Profile/_ContactInfo")
-@Html.Partial("Profile/_Achievements")
-@Html.Partial("Profile/_ProfileHistory")
+
 
 

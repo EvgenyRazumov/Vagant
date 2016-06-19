@@ -375,7 +375,8 @@ namespace Vagant.Web.Controllers
                 LogoId = model.LogoId,
                 AudioId = model.AudioId,
                 IsRatingEditable = _eventService.IsRatingEditable(UserId, model.Id),
-                Rate = model.Rate
+                Rate = model.Rate,
+                EventId = model.Id
             };
         }
 

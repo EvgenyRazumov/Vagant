@@ -1,7 +1,10 @@
 ﻿<script type="text/html" id="eventListItemTemplate">
     <div class="event-list-item">
-        <div class="event-list-item__plaing-indicator" data-bind="visible: isBeingPlayed">
-            <span class="glyphicon glyphicon-headphones"></span>
+        <div class="event-list-item__playing-indicator">
+            <span data-bind="visible: isBeingPlayed" class="glyphicon glyphicon-headphones event-list-item__playing-indicator--margined-right"></span>
+
+            <span class="glyphicon glyphicon-star"></span>
+            <span data-bind="text: rate"></span>
         </div>
 
         <img class="event-list-item__image" data-bind="attr: { 'src': logoUrl }" />
@@ -24,6 +27,10 @@
             <a class="event-list-item__controls--open event-list-item__controls--button" href="#" data-bind="click: open">
                 <span class="glyphicon glyphicon-arrow-right"></span>
             </a>
+        </div>
+
+        <div class="event-list-item__description">
+            <span data-bind="text: title"></span>
         </div>
     </div>
 </script>

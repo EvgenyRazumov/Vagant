@@ -93,3 +93,9 @@ textarea {
     margin-top: 6px;
     margin-right: 6px;
 }
+
+footer {
+    border-top: 2px solid #ccc;
+    text-align: right;
+    font-weight: bold;
+}

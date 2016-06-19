@@ -105,7 +105,7 @@ vagantApp.event.EventGridManager = function () {
     //#endregion
 
     //#region Public functions
-    self.init = function (options) {
+    self.init = function (options, player) {
         if (options) {
             getEventsDataUrl = options.getEventsDataUrl;
             self.eventList.setBusy();
@@ -118,6 +118,7 @@ vagantApp.event.EventGridManager = function () {
         }
 
         self.instrumentFilter.initChangeHandler(handleDateOrInstrumentFilterChange);
+        self.eventList.setPlayerReferrence(player);
     };
 
     self.loadEvents = function (events) {

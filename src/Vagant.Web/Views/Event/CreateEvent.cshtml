@@ -21,7 +21,9 @@
                 <section id="createEvent">
                     @using (Html.BeginForm("Create", "Event", FormMethod.Post, new { @class = "form-horizontal", role = "form", enctype = "multipart/form-data" }))
                     {
-                        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+                        @Html.ValidationSummary("", new { @class = "text-danger" })
+                        @Html.HiddenFor(m => m.LogoId)
+                        @Html.HiddenFor(m => m.AudioId)
                         <div class="form-group">
                             @Html.LabelFor(m => m.Title, new { @class = "col-md-3 control-label" })
                             <div class="col-md-9">

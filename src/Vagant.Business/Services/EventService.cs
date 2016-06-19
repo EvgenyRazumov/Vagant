@@ -105,6 +105,13 @@ namespace Vagant.Business.Services
             _uow.Commit();
         }
 
+        public IList<EventModel> GetUserEvents(string userId)
+        {
+            var eventRepository = _uow.GetRepository<Event>();
+            var events = eventRepository.Get(x => x.AuthorId == userId);
+            return events.Select(GetModel).ToList();
+        }
+
         #region Private Methods
 
         private void MapToEntity(EventModel model, Event entity)

@@ -19,6 +19,8 @@ namespace Vagant.Domain.Services
 
         IList<EventModel> GetEvents(DateTime startDate, DateTime endDate);
 
+        IList<EventModel> GetUserEvents(string userId);
+
         void CreateComment(EventComment comment);
     }
 }

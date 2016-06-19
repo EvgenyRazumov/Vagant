@@ -21,16 +21,16 @@
 }
 
 <div class="page home-page">
-    <div class="home-page-header clearfix">
+    <div class="home-page__header clearfix">
         <!-- ko template: { name: 'timelineTemplate', data: timeline } -->
         <!-- /ko -->
     </div>
-    <div class="home-page-body clearfix">
-        <div class="events-column col-xs-12 col-sm-12 col-md-9">
+    <div class="home-page__body clearfix">
+        <div class="col-xs-12 col-sm-12 col-md-9">
             <div data-bind="template: {name: 'eventManagerTemplate', data: gridManager }"></div>
         </div>
-        <div class="filters-column col-xs-12 col-sm-12 col-md-3">
-            <div class="filters">
+        <div class="col-xs-12 col-sm-12 col-md-3">
+            <div class="event-filters">
 
             </div>
             <div class="notifications">

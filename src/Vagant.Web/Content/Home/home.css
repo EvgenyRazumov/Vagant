@@ -1,7 +1,11 @@
-﻿.home-page .home-page-body {
-    padding-bottom: 10px;
+﻿.home-page {
+
 }
 
-.timeline {
+.home-page .home-page__header {
     margin-top: 20px;
+}
+
+.home-page .home-page__body {
+    padding-bottom: 10px;
 }

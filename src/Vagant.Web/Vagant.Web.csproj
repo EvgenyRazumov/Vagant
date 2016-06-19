@@ -243,7 +243,10 @@
     <Content Include="Content\Event\event.css" />
     <Content Include="Content\Home\event-filters.css" />
     <Content Include="Content\Home\home.css" />
+    <Content Include="Content\Images\facebook.png" />
+    <Content Include="Content\Images\instagram.png" />
     <Content Include="Content\Images\main_img.png" />
+    <Content Include="Content\Images\vk-group.png" />
     <Content Include="Content\jquery.jqtimeline.css" />
     <Content Include="Content\jquery.timeline.blue.css" />
     <Content Include="Content\Profile\achievements.css" />

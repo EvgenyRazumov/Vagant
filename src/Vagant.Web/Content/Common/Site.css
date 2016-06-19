@@ -78,3 +78,11 @@ textarea {
 .event-details-body .full-description{
     text-align:center;
 }
+
+.page:not(.home-page) {
+    border-left: 1px solid #ccc;
+    border-right: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    color: black;
+    background-color: #FFF;
+}

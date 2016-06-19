@@ -245,6 +245,7 @@
     <Content Include="Content\Profile\contentInformation.css" />
     <Content Include="Content\Profile\profile.css" />
     <Content Include="Content\Profile\profileHistory.css" />
+    <Content Include="Content\star-rating.css" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
@@ -283,6 +284,7 @@
     <Content Include="Scripts\modernizr-2.6.2.js" />
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
+    <Content Include="Scripts\star-rating.js" />
     <Content Include="Scripts\_references.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">

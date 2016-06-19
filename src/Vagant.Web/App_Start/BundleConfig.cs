@@ -36,6 +36,12 @@ namespace Vagant.Web
                 .Include("~/Content/jquery.jqtimeline.css")
                 .Include("~/Content/jquery.timeline.blue.css"));
 
+            bundles.Add(new ScriptBundle("~/bundles/StarRating")
+                .Include("~/Scripts/star-rating.js"));
+
+            bundles.Add(new StyleBundle("~/bundles/css/StarRating")
+                .Include("~/Content/star-rating.css"));
+
             RegisterHomeBundles(bundles);
             RegisterProfileBundles(bundles);
             RegisterEventBundles(bundles);

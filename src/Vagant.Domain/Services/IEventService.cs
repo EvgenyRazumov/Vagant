@@ -11,7 +11,7 @@ namespace Vagant.Domain.Services
 
         void UpdateEvent(EventModel model);
 
-        double UpdateRating(string userId, int eventId, int ratingValue);
+        double UpdateRating(string userId, int eventId, double ratingValue);
 
         bool IsRatingEditable(string userId, int eventId);
 

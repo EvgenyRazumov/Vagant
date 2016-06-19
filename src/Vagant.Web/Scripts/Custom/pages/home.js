@@ -5,7 +5,6 @@ vagantApp.pages.Home = function () {
     var self = this;
 
     //#region Properties
-    self.timeline = new vagantApp.home.Timeline();
     self.gridManager = new vagantApp.event.EventGridManager();
     self.player = new vagantApp.sound.Player();
     //#endregion

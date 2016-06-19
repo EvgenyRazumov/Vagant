@@ -92,6 +92,14 @@
     <Compile Include="Migrations\201606182357031_Rating.Designer.cs">
       <DependentUpon>201606182357031_Rating.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201606190216510_DoubleRating.cs" />
+    <Compile Include="Migrations\201606190216510_DoubleRating.Designer.cs">
+      <DependentUpon>201606190216510_DoubleRating.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201606190244365_IsSaxophoneUsed.cs" />
+    <Compile Include="Migrations\201606190244365_IsSaxophoneUsed.Designer.cs">
+      <DependentUpon>201606190244365_IsSaxophoneUsed.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Repositories\GenericRepository.cs" />
@@ -131,6 +139,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201606182357031_Rating.resx">
       <DependentUpon>201606182357031_Rating.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606190216510_DoubleRating.resx">
+      <DependentUpon>201606190216510_DoubleRating.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201606190244365_IsSaxophoneUsed.resx">
+      <DependentUpon>201606190244365_IsSaxophoneUsed.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

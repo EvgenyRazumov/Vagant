@@ -37,5 +37,7 @@ namespace Vagant.Domain.Models
         public bool IsViolinUsed { get; set; }
 
         public bool IsVocalApplicable { get; set; }
+
+        public bool IsSaxophoneUsed { get; set; }
     }
 }

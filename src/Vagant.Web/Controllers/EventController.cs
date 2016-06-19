@@ -156,7 +156,8 @@ namespace Vagant.Web.Controllers
                         {
                             isGuitarUsed = x.IsGuitarUsed,
                             isViolinUsed = x.IsViolinUsed,
-                            isVocalApplicable = x.IsVocalApplicable
+                            isVocalApplicable = x.IsVocalApplicable,
+                            isSaxophoneUsed = x.IsSaxophoneUsed
                         }
                     })
                 });
@@ -193,7 +194,7 @@ namespace Vagant.Web.Controllers
 
         [HttpPost]
         [Authorize]
-        public ActionResult UpdateRating(int eventId, int rating)
+        public ActionResult UpdateRating(int eventId, double rating)
         {
             try
             {
@@ -348,6 +349,7 @@ namespace Vagant.Web.Controllers
                 IsGuitarUsed = viewModel.EventInstruments.IsGuitarUsed,
                 IsViolinUsed = viewModel.EventInstruments.IsViolinUsed,
                 IsVocalApplicable = viewModel.EventInstruments.IsVocalApplicable,
+                IsSaxophoneUsed = viewModel.EventInstruments.IsSaxophoneUsed
             };
         }
 
@@ -369,12 +371,13 @@ namespace Vagant.Web.Controllers
                 {
                     IsGuitarUsed = model.IsGuitarUsed,
                     IsViolinUsed = model.IsViolinUsed,
-                    IsVocalApplicable = model.IsVocalApplicable
+                    IsVocalApplicable = model.IsVocalApplicable,
+                    IsSaxophoneUsed = model.IsSaxophoneUsed
                 },
                 Title = model.Title,
                 LogoId = model.LogoId,
                 AudioId = model.AudioId,
-                IsRatingEditable = _eventService.IsRatingEditable(UserId, model.Id),
+                IsRatingEditable = _eventService.IsRatingEditable(UserId, model.Id) && !string.IsNullOrEmpty(UserId),
                 Rate = model.Rate,
                 EventId = model.Id
             };
@@ -397,7 +400,8 @@ namespace Vagant.Web.Controllers
                 {
                     IsGuitarUsed = model.IsGuitarUsed,
                     IsViolinUsed = model.IsViolinUsed,
-                    IsVocalApplicable = model.IsVocalApplicable
+                    IsVocalApplicable = model.IsVocalApplicable,
+                    IsSaxophoneUsed = model.IsSaxophoneUsed
                 },
                 Title = model.Title,
                 AudioId = model.AudioId,

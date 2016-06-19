@@ -9,3 +9,19 @@
 .table th {
     font-weight: bold;
 }
+
+.social-networks-list {
+    padding: 10px 0;
+}
+
+.social-networks-list .social-network-link {
+    display: inline-block;
+    padding-right: 5px;
+}
+
+.social-networks-list .social-network-link .image {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border-radius: 7px;
+}

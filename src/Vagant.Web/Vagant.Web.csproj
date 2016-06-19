@@ -243,10 +243,13 @@
     <Content Include="Content\Event\event.css" />
     <Content Include="Content\Home\event-filters.css" />
     <Content Include="Content\Home\home.css" />
+    <Content Include="Content\Images\facebook.png" />
+    <Content Include="Content\Images\instagram.png" />
     <Content Include="Content\Home\instrument-filter.css" />
     <Content Include="Content\Images\guitar-icon.png" />
     <Content Include="Content\Images\logo-default.jpg" />
     <Content Include="Content\Images\main_img.png" />
+    <Content Include="Content\Images\vk-group.png" />
     <Content Include="Content\Images\saxophone-icon.png" />
     <Content Include="Content\Images\user-icon.png" />
     <Content Include="Content\Images\violin-icon.png" />

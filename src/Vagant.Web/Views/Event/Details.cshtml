@@ -62,6 +62,7 @@
                         <div class="instruments">
                             @Html.CheckBoxFor(m => m.EventInstruments.IsGuitarUsed, new { @disabled = "disabled" }) Guitar
                             @Html.CheckBoxFor(m => m.EventInstruments.IsViolinUsed, new { @disabled = "disabled" }) Violin
+                            @Html.CheckBoxFor(m => m.EventInstruments.IsSaxophoneUsed, new { @disabled = "disabled" }) Saxophone
                             @Html.CheckBoxFor(m => m.EventInstruments.IsVocalApplicable, new { @disabled = "disabled" }) Vocal
                         </div>
                         @if (Model.AudioId.HasValue)

@@ -114,14 +114,14 @@
 	}
 
 	jqTimeLine.prototype._showToolTip=function(nLeft,strToolTip,eventId,closable){
-		//var _this = this;
-		//_this._$toolTip  = $(
-		//						'<div class="e-message" id="tooltip_'+eventId+'" style="left:'+ nLeft +'px">' +
-		//							'<div class="message-pointer"></div>' +
-		//							strToolTip + 
-		//						'</div>'
-		//					);
-		//_this.$mainContainer.append(_this._$toolTip);
+		var _this = this;
+		_this._$toolTip  = $(
+								'<div class="e-message" id="tooltip_'+eventId+'" style="left:'+ nLeft +'px">' +
+									'<div class="message-pointer"></div>' +
+									strToolTip + 
+								'</div>'
+							);
+		_this.$mainContainer.append(_this._$toolTip);
 	}
 
 	jqTimeLine.prototype._getAllNeighborEvents = function(nLeft){
@@ -247,17 +247,6 @@
 			this.$mainContainer.append(markup);
 		}
 	}
-
-	jqTimeLine.prototype.addNewArrayOfEvents = function (e) {
-	    var arr = [], i = 0;
-	    arr = $.isArray(e) ? e : [e];
-        this.$mainContainer.empty();
-
-	    for (i = 0; i < arr.length; i++) {
-	        var markup = this._getEventMarkup(arr[i]);
-	        this.$mainContainer.append(markup);
-	    }
-	};
 
 	jqTimeLine.prototype.deleteEvent = function(eIds){
 		var _this = this;

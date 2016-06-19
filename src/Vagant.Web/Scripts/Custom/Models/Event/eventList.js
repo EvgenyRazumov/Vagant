@@ -5,6 +5,8 @@ vagantApp.event.EventList = function () {
     var self = this;
 
     //#region Properties
+    self.isBusy = ko.observable();
+
     self.items = ko.observableArray([]);
     //#endregion
 
@@ -21,6 +23,14 @@ vagantApp.event.EventList = function () {
                 self.items.push(newItem);
             });
         }
+    };
+
+    self.setBusy = function () {
+        self.isBusy(true);
+    };
+
+    self.setReady = function () {
+        self.isBusy(false);
     };
     //#endregion
 };

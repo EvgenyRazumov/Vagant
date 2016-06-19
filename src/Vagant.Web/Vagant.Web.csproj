@@ -236,6 +236,8 @@
     <Content Include="Content\bootstrap.min.css" />
     <Content Include="Content\Common\reset.css" />
     <Content Include="Content\Event\createEvent.css" />
+    <Content Include="Content\Event\event-list-item.css" />
+    <Content Include="Content\Event\event-list.css" />
     <Content Include="Content\Event\event.css" />
     <Content Include="Content\Home\home.css" />
     <Content Include="Content\Images\main_img.png" />
@@ -270,6 +272,7 @@
     <Content Include="Scripts\Custom\models\profile\contactInformation.js" />
     <Content Include="Scripts\Custom\models\profile\profile.js" />
     <Content Include="Scripts\Custom\models\profile\profileHistory.js" />
+    <Content Include="Scripts\Custom\pages\home.js" />
     <Content Include="Scripts\Custom\sound\soundCloudPlayer.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />
@@ -327,6 +330,9 @@
     <Content Include="Views\Event\Details.cshtml" />
     <Content Include="Views\Event\EditEvent.cshtml" />
     <Content Include="Views\Shared\Home\_Timeline.cshtml" />
+    <Content Include="Views\Shared\Event\EventListItem.cshtml" />
+    <Content Include="Views\Shared\Event\EventList.cshtml" />
+    <Content Include="Views\Shared\Event\EventManager.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

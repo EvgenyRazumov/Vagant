@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Vagant.Domain.Entities
 {
@@ -15,8 +16,6 @@ namespace Vagant.Domain.Entities
         public DateTime? EndTime { get; set; }
 
         public double Rate { get; set; }
-
-        public int VotesNumber { get; set; }
 
         public int LocationId { get; set; }
 
@@ -37,5 +36,7 @@ namespace Vagant.Domain.Entities
         public virtual ApplicationUser Author { get; set; }
 
         public virtual EventInstrument EventInstrument { get; set; }
+
+        public virtual ICollection<EventRating> EventRatings { get; set; }
     }
 }

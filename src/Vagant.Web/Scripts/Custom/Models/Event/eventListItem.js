@@ -12,13 +12,34 @@ vagantApp.event.EventListItem = function () {
     self.instruments = new vagantApp.event.EventInstrumentModel();
     //#endregion
 
+    //#region Computed
+    self.eventDetailsPageUrl = ko.computed(function(){
+        var prefixUrl = vagantAppParams ? vagantAppParams.gotoEventsDetailsUrl : '';
+        return prefixUrl + '?id=' + self.id();
+    });
+    //#endregion
+
     //#region Public functions
     self.loadData = function (dataObject) {
         if (dataObject) {
-            self.id(dataObject.id);
+            self.id(dataObject.eventId);
             self.title(dataObject.title);
             self.logoUrl(dataObject.logoUrl);
+
+            self.instruments.loadData(dataObject.instruments);
         }
+    };
+
+    self.play = function () {
+
+    };
+
+    self.pause = function () {
+
+    };
+
+    self.open = function () {
+        location = self.eventDetailsPageUrl();
     };
     //#endregion
 };

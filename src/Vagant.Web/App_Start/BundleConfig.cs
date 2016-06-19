@@ -83,9 +83,16 @@ namespace Vagant.Web
         {
             bundles.Add(new ScriptBundle("~/bundles/Home")
                 .Include("~/Scripts/Custom/Models/Home/timelineModel.js")
-                .Include("~/Scripts/Custom/Models/Home/home.js"));
+                .Include("~/Scripts/Custom/models/event/instrumentFilter.js")
+                .Include("~/Scripts/Custom/models/event/eventInstrumentModel.js")
+                .Include("~/Scripts/Custom/models/event/eventListItem.js")
+                .Include("~/Scripts/Custom/models/event/eventList.js")
+                .Include("~/Scripts/Custom/models/event/eventGridManager.js")
+                .Include("~/Scripts/Custom/pages/home.js"));
 
             bundles.Add(new StyleBundle("~/bundles/css/Home")
+                .Include("~/Content/Event/event-list.css")
+                .Include("~/Content/Event/event-list-item.css")
                 .Include("~/Content/Home/home.css"));
         }
     }

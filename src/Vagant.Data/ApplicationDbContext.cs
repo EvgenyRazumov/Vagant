@@ -26,6 +26,8 @@ namespace Vagant.Data
 
         public DbSet<EventInstrument> EventInstruments { get; set; }
 
+        public DbSet<EventRating> EventRatings { get; set; }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);

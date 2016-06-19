@@ -52,7 +52,7 @@
                         </div>
                         <div class="space"></div>
                         <div class="author">
-                            Author: @Html.DisplayFor(m => m.AuthorName)
+                            Author: <a href="@Url.Action("Details", "Profile", new { userId = Model.AuthorId })">@Html.DisplayFor(m => m.AuthorName)</a>
                         </div>
                         <div class="space"></div>
                         <div class="start-time">

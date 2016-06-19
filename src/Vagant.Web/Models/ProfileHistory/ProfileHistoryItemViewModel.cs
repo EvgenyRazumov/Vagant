@@ -14,6 +14,8 @@ namespace Vagant.Web.Models.ProfileHistory
 
         public double EventRate { get; set; }
 
+        public bool CanClone { get; set; }
+
         #endregion
     }
 }

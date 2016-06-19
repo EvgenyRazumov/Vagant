@@ -11,6 +11,8 @@ namespace Vagant.Web.Models.Event
 
         public string AuthorName { get; set; }
 
+        public string AuthorId { get; set; }
+
         public bool IsRatingEditable { get; set; }
 
         public double Rate { get; set; }

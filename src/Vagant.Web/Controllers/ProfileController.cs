@@ -12,12 +12,15 @@ namespace Vagant.Web.Controllers
     public class ProfileController : BaseController
     {
         private readonly IEventService _eventService;
+        private readonly IUserService _userService;
 
         #region Ctor
 
-        public ProfileController(IEventService eventService)
+        public ProfileController(IEventService eventService,
+            IUserService userService)
         {
             _eventService = eventService;
+            _userService = userService;
         }
 
         #endregion
@@ -47,13 +50,16 @@ namespace Vagant.Web.Controllers
 
         private ProfileDetailsViewModel GetProfileDetailsViewModel(string userId, IList<EventModel> userEvents)
         {
-            var result = new ProfileDetailsViewModel();
-            if (UserId == userId)
+            var user = _userService.GetById(userId);
+
+            var result = new ProfileDetailsViewModel()
             {
-                result.HistoryItems = userEvents
-                                        .OrderBy(x => x.StartTime)
-                                        .Select(GetProfileHistoryItemViewModel).ToList();
-            }
+                UserName = string.Format("{0} {1}", user.FirstName, user.LastName)
+            };
+
+            result.HistoryItems = userEvents
+                                    .OrderBy(x => x.StartTime)
+                                    .Select(GetProfileHistoryItemViewModel).ToList();
 
             return result;
         }
@@ -65,7 +71,8 @@ namespace Vagant.Web.Controllers
                 EventDate = model.StartTime,
                 EventName = model.Title,
                 EventId = model.Id,
-                EventRate = model.Rate
+                EventRate = model.Rate,
+                CanClone = model.AuthorId == UserId
             };
         }
 

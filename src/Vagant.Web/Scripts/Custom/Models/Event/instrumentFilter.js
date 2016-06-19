@@ -20,18 +20,24 @@ vagantApp.event.InstrumentFilter = function (changeHandler) {
         var isGuitarRequired = self.isGuitarUsed();
         var isViolinRequired = self.isViolinUsed();
         var isVocalRequired = self.isVocalUsed();
+        var isSaxophoneRequired = self.isSaxophoneUsed();
 
         var filterFunction = function (eventObject) {
-            if (eventObject) {
-                if (isGuitarRequired && !eventObject.isGuitarUsed) {
+            if (eventObject && eventObject.instruments) {
+                var instruments = eventObject.instruments;
+                if (isGuitarRequired && !instruments.isGuitarUsed) {
                     return false;
                 }
 
-                if (isViolinRequired && !eventObject.isViolinUsed) {
+                if (isViolinRequired && !instruments.isViolinUsed) {
                     return false;
                 }
 
-                if (isVocalRequired && !eventObject.isVocalUsed) {
+                if (isSaxophoneRequired && !instruments.isSaxophoneUsed) {
+                    return false;
+                }
+
+                if (isVocalRequired && !instruments.isVocalApplicable) {
                     return false;
                 }
 

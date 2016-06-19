@@ -21,14 +21,16 @@
 <div class="page profile-page">
     <div class="profile-body">
         <div class="row">
-            <div class="col-md-2"></div>
-            <div class="col-md-8">
+            <div class="col-md-1"></div>
+            <div class="col-md-9">
                 <div class="row">
                     <div class="col-md-4">
                         <img class="profile-image" src="@Url.Content("~/Content/Images/user-icon.png")" alt="no image" />
                     </div>
                     <div class="col-md-8">
-                        <div class="social-networks-list">
+                        @Html.DisplayFor(x => x.UserName)
+                        <div class="space"></div>
+						<div class="social-networks-list">
                             <div class="social-network-link">
                                 <img class="image img-responsive" src="@Url.Content("~/Content/Images/facebook.png")"/>
                             </div>

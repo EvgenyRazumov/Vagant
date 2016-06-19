@@ -62,6 +62,7 @@
     <Compile Include="Entities\Event.cs" />
     <Compile Include="Entities\EventComment.cs" />
     <Compile Include="Entities\EventInstrument.cs" />
+    <Compile Include="Entities\EventRating.cs" />
     <Compile Include="Entities\FileData.cs" />
     <Compile Include="Entities\Location.cs" />
     <Compile Include="Entities\Message.cs" />

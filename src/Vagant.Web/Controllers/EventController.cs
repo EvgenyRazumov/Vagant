@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using Vagant.Domain.Entities;
 using Vagant.Domain.Models;
 using Vagant.Domain.Services;
+using Vagant.Web.Extensions;
 using Vagant.Web.Models.Event;
 using Vagant.Web.Models.Location;
 
@@ -51,14 +52,36 @@ namespace Vagant.Web.Controllers
             }
         }
 
+        [Authorize]
+        public ActionResult Clone(int id)
+        {
+            try
+            {
+                var @event = _eventService.GetEvent(id);
+                var viewModel = GetEditEventViewModel(@event);
+
+                return View("CreateEvent", viewModel);
+            }
+            catch (Exception)
+            {
+                //todo: log error
+                return RedirectToAction("Index", "Home");
+            }
+        }
+
         [HttpPost]
         [Authorize]
         public ActionResult Create(EditEventViewModel viewModel)
         {
             try
             {
-                int? logoId = null;
-                int? audioId = null;
+                if (!ModelState.IsValid)
+                {
+                    return View("CreateEvent", viewModel);
+                }
+
+                int? logoId = viewModel.LogoId;
+                int? audioId = viewModel.AudioId;
 
                 var logoFile = GetImageFileFromStream();
                 if (logoFile != null && logoFile.ContentLength > 0)
@@ -113,20 +136,6 @@ namespace Vagant.Web.Controllers
             }
         }
 
-        public ActionResult AddComment(string text)
-        {
-            try
-            {
-                //todo: create
-                return new SuccessJsonResult();
-            }
-            catch (Exception)
-            {
-                //todo: log error
-                return new HttpBadRequestResult();
-            }
-        }
-
         public ActionResult GetEvents(DateTime startDate, DateTime endDate)
         {
             try
@@ -156,6 +165,44 @@ namespace Vagant.Web.Controllers
             }
             catch (Exception)
             {
+                return new HttpBadRequestResult();
+            }
+        }
+
+        [HttpPost]
+        [Authorize]
+        public ActionResult AddComment(int eventId, string text)
+        {
+            try
+            {
+                var comment = new EventComment
+                {
+                    EventId = eventId,
+                    Text = text,
+                    UserId = UserId
+                };
+                _eventService.CreateComment(comment);
+                return new SuccessJsonResult();
+            }
+            catch (Exception)
+            {
+                //todo: log error
+                return new HttpBadRequestResult();
+            }
+        }
+
+        [HttpPost]
+        [Authorize]
+        public ActionResult UpdateRating(int eventId, int rating)
+        {
+            try
+            {
+                var newRating = _eventService.UpdateRating(UserId, eventId, rating);
+                return new SuccessJsonResult(newRating);
+            }
+            catch (Exception)
+            {
+                //todo: log error
                 return new HttpBadRequestResult();
             }
         }
@@ -207,7 +254,11 @@ namespace Vagant.Web.Controllers
         {
             if (Request.Files.Count > 0)
             {
-                return Request.Files["logo"];
+                var file = Request.Files["logo"];
+                if (file.IsImage())
+                {
+                    return file;
+                }
             }
 
             return null;
@@ -302,8 +353,6 @@ namespace Vagant.Web.Controllers
 
         private EventDetailsViewModel GetEventDetailsViewModel(EventModel model)
         {
-            var user = _userService.GetById(model.AuthorId);
-
             return new EventDetailsViewModel
             {
                 AuthorName = model.AuthorName,
@@ -324,7 +373,33 @@ namespace Vagant.Web.Controllers
                 },
                 Title = model.Title,
                 LogoId = model.LogoId,
-                AudioId = model.AudioId
+                AudioId = model.AudioId,
+                IsRatingEditable = _eventService.IsRatingEditable(UserId, model.Id)
+            };
+        }
+
+        private EditEventViewModel GetEditEventViewModel(EventModel model)
+        {
+            return new EditEventViewModel
+            {
+                BriefDescription = model.BriefDescription,
+                StartTime = model.StartTime,
+                EndTime = model.EndTime,
+                FullDescription = model.FullDescription,
+                Location = new LocationViewModel
+                {
+                    Latitude = model.Latitude,
+                    Longitude = model.Longitude,
+                },
+                EventInstruments = new EventInstrumentsViewModel()
+                {
+                    IsGuitarUsed = model.IsGuitarUsed,
+                    IsViolinUsed = model.IsViolinUsed,
+                    IsVocalApplicable = model.IsVocalApplicable
+                },
+                Title = model.Title,
+                AudioId = model.AudioId,
+                LogoId = model.LogoId
             };
         }
 

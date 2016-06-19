@@ -1,61 +1,43 @@
-﻿using Agile.Web.Framework.ActionResults;
-using System;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Web.Mvc;
-using Vagant.Web.Models.Message;
+using Vagant.Domain.Models;
+using Vagant.Domain.Services;
 using Vagant.Web.Models.Profile;
+using Vagant.Web.Models.ProfileHistory;
 
 namespace Vagant.Web.Controllers
 {
     public class ProfileController : BaseController
     {
+        private readonly IEventService _eventService;
+
         #region Ctor
 
-        public ProfileController()
+        public ProfileController(IEventService eventService)
         {
+            _eventService = eventService;
         }
 
         #endregion
 
         #region Actions
 
-        public ActionResult Index(string userId)
-        {
-            try
-            {
-                var viewModel = GetEditableProfileViewModel(userId);
-                return View(viewModel);
-            }
-            catch (Exception)
-            {
-                //todo: log error
-                return RedirectToAction("Index", "Home");
-            }
-        }
-
+        [HttpGet]
+        [Authorize]
         public ActionResult Details(string userId)
         {
             try
             {
-                var viewModel = GetProfileDetailsViewModel(userId);
+                var userEvents = _eventService.GetUserEvents(userId);
+                var viewModel = GetProfileDetailsViewModel(userId, userEvents);
                 return View(viewModel);
             }
             catch (Exception)
             {
                 //todo: log error
                 return RedirectToAction("Index", "Home");
-            }
-        }
-
-        public ActionResult SendMessage(SendMessageViewModel messageModel)
-        {
-            try
-            {
-                return new SuccessJsonResult();
-            }
-            catch (Exception)
-            {
-                //todo: log error
-                return new HttpBadRequestResult();
             }
         }
 
@@ -63,18 +45,28 @@ namespace Vagant.Web.Controllers
 
         #region Private Methods
 
-        private EditProfileViewModel GetEditableProfileViewModel(string userId)
+        private ProfileDetailsViewModel GetProfileDetailsViewModel(string userId, IList<EventModel> userEvents)
         {
-            var result = new EditProfileViewModel();
+            var result = new ProfileDetailsViewModel();
+            if (UserId == userId)
+            {
+                result.HistoryItems = userEvents
+                                        .OrderBy(x => x.StartTime)
+                                        .Select(GetProfileHistoryItemViewModel).ToList();
+            }
 
             return result;
         }
 
-        private ProfileDetailsViewModel GetProfileDetailsViewModel(string userId)
+        private ProfileHistoryItemViewModel GetProfileHistoryItemViewModel(EventModel model)
         {
-            var result = new ProfileDetailsViewModel();
-
-            return result;
+            return new ProfileHistoryItemViewModel
+            {
+                EventDate = model.StartTime,
+                EventName = model.Title,
+                EventId = model.Id,
+                EventRate = model.Rate
+            };
         }
 
         #endregion

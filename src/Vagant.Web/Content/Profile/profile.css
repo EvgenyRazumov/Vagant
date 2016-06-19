@@ -1,1 +1,11 @@
-﻿
+﻿.profile-image {
+    max-width: 100%;
+}
+
+.profile-body {
+    padding: 10px;
+}
+
+.table th {
+    font-weight: bold;
+}

@@ -152,6 +152,7 @@ namespace Vagant.Web.Controllers
                             : Url.Content("~/Content/Images/logo-default.jpg"),
                         audioUrl = x.AudioId.HasValue ? Url.Action("Download", "FileData", new { id = x.AudioId }) : null,
                         title = x.Title,
+                        rate = x.Rate,
                         instruments = new
                         {
                             isGuitarUsed = x.IsGuitarUsed,

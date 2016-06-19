@@ -243,7 +243,14 @@
     <Content Include="Content\Event\event.css" />
     <Content Include="Content\Home\event-filters.css" />
     <Content Include="Content\Home\home.css" />
+    <Content Include="Content\Home\instrument-filter.css" />
+    <Content Include="Content\Images\guitar-icon.png" />
+    <Content Include="Content\Images\logo-default.jpg" />
     <Content Include="Content\Images\main_img.png" />
+    <Content Include="Content\Images\saxophone-icon.png" />
+    <Content Include="Content\Images\user-icon.png" />
+    <Content Include="Content\Images\violin-icon.png" />
+    <Content Include="Content\Images\vocalist-icon.png" />
     <Content Include="Content\jquery.jqtimeline.css" />
     <Content Include="Content\jquery.timeline.blue.css" />
     <Content Include="Content\Profile\achievements.css" />
@@ -340,6 +347,7 @@
     <Content Include="Views\Shared\Event\EventList.cshtml" />
     <Content Include="Views\Shared\Event\EventManager.cshtml" />
     <Content Include="Views\Shared\Event\_StarRating.cshtml" />
+    <Content Include="Views\Shared\Home\InstrumentFilter.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -94,6 +94,7 @@ namespace Vagant.Web
                 .Include("~/Scripts/Custom/pages/home.js"));
 
             bundles.Add(new StyleBundle("~/bundles/css/Home")
+                .Include("~/Content/Home/instrument-filter.css")
                 .Include("~/Content/Event/event-list.css")
                 .Include("~/Content/Event/event-list-item.css")
                 .Include("~/Content/Home/event-filters.css")

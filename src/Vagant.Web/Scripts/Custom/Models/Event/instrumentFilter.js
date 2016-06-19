@@ -11,7 +11,7 @@ vagantApp.event.InstrumentFilter = function (changeHandler) {
     //#region Properties
     self.isGuitarUsed = ko.observable(false);
     self.isViolinUsed = ko.observable(false);
-
+    self.isSaxophoneUsed = ko.observable(false);
     self.isVocalUsed = ko.observable(false);
     //#endregion
 
@@ -43,8 +43,8 @@ vagantApp.event.InstrumentFilter = function (changeHandler) {
     };
 
     var handleFilterStateChange = function () {
-        if (changeHandler && typeof changeHandler === 'function') {
-            changeHandler();
+        if (filterChangeHandler && typeof filterChangeHandler === 'function') {
+            filterChangeHandler();
         }
     };
     //#endregion
@@ -53,6 +53,7 @@ vagantApp.event.InstrumentFilter = function (changeHandler) {
     self.isGuitarUsed.subscribe(handleFilterStateChange);
     self.isGuitarUsed.subscribe(handleFilterStateChange);
     self.isVocalUsed.subscribe(handleFilterStateChange);
+    self.isSaxophoneUsed.subscribe(handleFilterStateChange);
     //#endregion
 
     //#region Public functions
@@ -62,6 +63,22 @@ vagantApp.event.InstrumentFilter = function (changeHandler) {
 
     self.getFilter = function () {
         return getFilterFunction();
+    };
+
+    self.clickGuitar = function () {
+        self.isGuitarUsed(!self.isGuitarUsed());
+    };
+
+    self.clickViolin = function () {
+        self.isViolinUsed(!self.isViolinUsed());
+    };
+
+    self.clickVocal = function () {
+        self.isVocalUsed(!self.isVocalUsed());
+    };
+
+    self.clickSaxophone = function () {
+        self.isSaxophoneUsed(!self.isSaxophoneUsed());
     };
     //#endregion
 };

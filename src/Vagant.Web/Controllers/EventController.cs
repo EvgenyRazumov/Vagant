@@ -8,6 +8,7 @@ using System.Web.Mvc;
 using Vagant.Domain.Entities;
 using Vagant.Domain.Models;
 using Vagant.Domain.Services;
+using Vagant.Web.Extensions;
 using Vagant.Web.Models.Event;
 using Vagant.Web.Models.Location;
 
@@ -253,7 +254,11 @@ namespace Vagant.Web.Controllers
         {
             if (Request.Files.Count > 0)
             {
-                return Request.Files["logo"];
+                var file = Request.Files["logo"];
+                if (file.IsImage())
+                {
+                    return file;
+                }
             }
 
             return null;

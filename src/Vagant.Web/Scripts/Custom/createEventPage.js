@@ -42,7 +42,7 @@ vagantApp.event.CreateEventPage = function () {
 
         self.map = new google.maps.Map(document.getElementById('gmap_canvas'), myOptions);
         self.map.setOptions({ styles: styles });
-        if ($('#latitude').val().length == 0 || $('#longitude').val().length == 0)
+        if ($('#latitude').val() == 0 && $('#longitude').val() == 0)
         {
             navigator.geolocation.getCurrentPosition(showCurrentPosition);
         } else {

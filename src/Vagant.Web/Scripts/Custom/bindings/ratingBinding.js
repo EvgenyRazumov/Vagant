@@ -13,7 +13,8 @@
                 step: 0.5,
                 size: 'xs',
                 showClear: false,
-                showCaption: false
+                showCaption: false,
+                disabled: !options.isEditable()
             });
 
             $(element).on('rating.change', function () {

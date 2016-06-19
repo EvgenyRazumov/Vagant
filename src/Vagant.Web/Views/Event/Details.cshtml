@@ -6,10 +6,12 @@
 }
 
 @section Styles {
+    @Styles.Render("~/bundles/css/StarRating")
     @Styles.Render("~/bundles/css/Event")
 }
 
 @section BodyScripts {
+    @Scripts.Render("~/bundles/StarRating")
     @Scripts.Render("~/bundles/DetailsEvent")
     @Scripts.Render("~/bundles/Event")
 }
@@ -84,7 +86,13 @@
                     </div>
                 </div>
             </div>
+            <div class="col-md-3">
+                <div class="rating-container" data-bind="template: { name: 'starRatingTemplate', data: rating }">
+                </div>
+            </div>
         </div>
     </div>
 </div>
+
+@Html.Partial("Event/_StarRating")
 

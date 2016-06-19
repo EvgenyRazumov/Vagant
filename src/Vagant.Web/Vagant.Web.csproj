@@ -255,6 +255,7 @@
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <None Include="Scripts\jquery-1.10.2.intellisense.js" />
+    <Content Include="Scripts\Custom\bindings\ratingBinding.js" />
     <Content Include="Scripts\Custom\bindings\timelineBinding.js" />
     <Content Include="Scripts\Custom\createEventPage.js" />
     <Content Include="Scripts\Custom\detailsEventPage.js" />
@@ -266,6 +267,7 @@
     <Content Include="Scripts\Custom\models\event\eventList.js" />
     <Content Include="Scripts\Custom\models\event\eventListItem.js" />
     <Content Include="Scripts\Custom\models\event\instrumentFilter.js" />
+    <Content Include="Scripts\Custom\models\event\starRatingModel.js" />
     <Content Include="Scripts\Custom\models\home\home.js" />
     <Content Include="Scripts\Custom\models\home\timelineModel.js" />
     <Content Include="Scripts\Custom\models\profile\achievements.js" />
@@ -333,6 +335,7 @@
     <Content Include="Views\Shared\Event\EventListItem.cshtml" />
     <Content Include="Views\Shared\Event\EventList.cshtml" />
     <Content Include="Views\Shared\Event\EventManager.cshtml" />
+    <Content Include="Views\Shared\Event\_StarRating.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

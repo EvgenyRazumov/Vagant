@@ -37,7 +37,8 @@ namespace Vagant.Web
                 .Include("~/Content/jquery.timeline.blue.css"));
 
             bundles.Add(new ScriptBundle("~/bundles/StarRating")
-                .Include("~/Scripts/star-rating.js"));
+                .Include("~/Scripts/star-rating.js")
+                .Include("~/Scripts/Custom/bindings/ratingBinding.js"));
 
             bundles.Add(new StyleBundle("~/bundles/css/StarRating")
                 .Include("~/Content/star-rating.css"));
@@ -67,6 +68,7 @@ namespace Vagant.Web
                 .Include("~/Scripts/Custom/createEventPage.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/DetailsEvent")
+                .Include("~/Scripts/Custom/models/event/starRatingModel.js")
                 .Include("~/Scripts/Custom/detailsEventPage.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/Event")

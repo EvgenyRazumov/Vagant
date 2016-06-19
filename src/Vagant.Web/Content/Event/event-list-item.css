@@ -2,7 +2,8 @@
     width: 200px;
     height: 200px;
 
-    padding: 10px;
+    padding: 1px;
+    margin: 3px;
 
     box-sizing: border-box;
 }
@@ -10,6 +11,13 @@
 .event-list-item .event-list-item__image {
     max-width: 100%;
     max-height: 100%;
+}
+
+.event-list-item .event-list-item__plaing-indicator {
+    position: absolute;
+    opacity: 0.9;
+    color: white;
+    padding: 10px;
 }
 
 .event-list-item .event-list-item__controls {
@@ -27,8 +35,10 @@
 
 .event-list-item a.event-list-item__controls--button {
     color: white;
+
+    text-decoration: none;
 }
 
 .event-list-item .event-list-item__controls--open {
-    margin-left: 120px;
+    float: right;
 }

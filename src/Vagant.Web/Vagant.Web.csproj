@@ -241,6 +241,7 @@
     <Content Include="Content\Event\event-list-item.css" />
     <Content Include="Content\Event\event-list.css" />
     <Content Include="Content\Event\event.css" />
+    <Content Include="Content\Home\event-filters.css" />
     <Content Include="Content\Home\home.css" />
     <Content Include="Content\Images\main_img.png" />
     <Content Include="Content\jquery.jqtimeline.css" />
@@ -274,6 +275,7 @@
     <Content Include="Scripts\Custom\models\profile\profile.js" />
     <Content Include="Scripts\Custom\models\profile\profileHistory.js" />
     <Content Include="Scripts\Custom\pages\home.js" />
+    <Content Include="Scripts\Custom\sound\player.js" />
     <Content Include="Scripts\Custom\sound\soundCloudPlayer.js" />
     <Content Include="Scripts\jquery-1.10.2.js" />
     <Content Include="Scripts\jquery-1.10.2.min.js" />

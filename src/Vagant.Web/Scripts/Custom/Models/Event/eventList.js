@@ -4,6 +4,10 @@ vagantApp.event = vagantApp.event || {};
 vagantApp.event.EventList = function () {
     var self = this;
 
+    //#region Fields
+    var player = null;
+    //#endregion
+
     //#region Properties
     self.isBusy = ko.observable();
 
@@ -11,6 +15,19 @@ vagantApp.event.EventList = function () {
     //#endregion
 
     //#region Private functions
+    var markEventBeingPlayed = function (itemModel) {
+        if (itemModel) {
+            itemModel.updatePlayerStatus(true);
+        }
+    };
+
+    var markAllEventsStopped = function () {
+        ko.utils.arrayForEach(self.items(), function (itemModel) {
+            if (itemModel) {
+                itemModel.updatePlayerStatus(false);
+            }
+        });
+    };
     //#endregion
 
     //#region Public functions
@@ -31,6 +48,26 @@ vagantApp.event.EventList = function () {
 
     self.setReady = function () {
         self.isBusy(false);
+    };
+
+    self.setPlayerReferrence = function (playerInstance) {
+        player = playerInstance;
+    };
+
+    self.play = function (itemModel) {
+        if (player) {
+            markAllEventsStopped();
+            player.load(itemModel.audioUrl());
+            player.play();
+            markEventBeingPlayed(itemModel);
+        }
+    };
+
+    self.pause = function () {
+        if (player) {
+            markAllEventsStopped();
+            player.pause();
+        }
     };
     //#endregion
 };
